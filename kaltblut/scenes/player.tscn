@@ -1,13 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bv3at001lt1ea"]
+[gd_scene load_steps=4 format=3 uid="uid://bv3at001lt1ea"]
 
 [ext_resource type="PackedScene" uid="uid://cpdsqagh4uabv" path="res://scenes/entity.tscn" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cyf8o2our2ivk" path="res://scripts/player.gd" id="2_g2els"]
+[ext_resource type="PackedScene" uid="uid://do568pp650j5i" path="res://scenes/gewehr-43.tscn" id="3_qhqgy"]
 
 [node name="player" instance=ExtResource("1_3vyb7")]
 script = ExtResource("2_g2els")
+MOUSE_SENSITIVITY = 0.001
 
 [node name="head" type="Node3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.516914, 0)
 
 [node name="camera" type="Camera3D" parent="head" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121476, 0)
+
+[node name="gewehr-43" parent="head/camera" index="0" instance=ExtResource("3_qhqgy")]
+transform = Transform3D(-7.86805e-08, 0, 1.8, 0, 1.8, 0, -1.8, 0, -7.86805e-08, 0.283833, -0.205262, -0.449339)

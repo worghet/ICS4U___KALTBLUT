@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7swlqfn0artd"]
+
+[ext_resource type="PackedScene" uid="uid://cpdsqagh4uabv" path="res://scenes/entity.tscn" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://dkn30ignxe6ok" path="res://scripts/enemy.gd" id="2_md0e3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p1mj"]
+albedo_color = Color(0.980392, 0.388235, 0.294118, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_md0e3"]
+material = SubResource("StandardMaterial3D_7p1mj")
+
+[node name="entity" groups=["enemies"] instance=ExtResource("1_7p1mj")]
+script = ExtResource("2_md0e3")
+health = 200
+
+[node name="mesh" parent="." index="0"]
+mesh = SubResource("CapsuleMesh_md0e3")

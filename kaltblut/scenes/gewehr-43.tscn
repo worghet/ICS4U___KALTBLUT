@@ -1,0 +1,168 @@
+[gd_scene load_steps=8 format=3 uid="uid://do568pp650j5i"]
+
+[ext_resource type="PackedScene" uid="uid://dp3a6c6k2m4r" path="res://textures/gewehr_43.glb" id="1_0lp18"]
+[ext_resource type="Script" uid="uid://kwfq3etbe4vj" path="res://scenes/gewehr_43.gd" id="2_a6ng1"]
+
+[sub_resource type="Animation" id="Animation_0lp18"]
+resource_name = "fire"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.025, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.5708, -0.174533, 0), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/Root/Cube_016:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0119, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.66144, 0, 0.41513), Vector3(-2, 0, 0.415), Vector3(-0.66144, 0, 0.41513)]
+}
+
+[sub_resource type="Animation" id="Animation_a6ng1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/Root/Cube_016:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.66144, 0, 0.41513)]
+}
+
+[sub_resource type="Animation" id="Animation_osdm8"]
+resource_name = "ads"
+length = 0.4
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.2, 0.05, -0.158)]
+}
+
+[sub_resource type="Animation" id="Animation_howwe"]
+resource_name = "ads_fire"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sketchfab_model:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.025, 0, 0), Vector3(0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.02, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.5708, -0.174533, 0), Vector3(-1.5708, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sketchfab_model/Root/Cube_016:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0119, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.66144, 0, 0.41513), Vector3(-2, 0, 0.415), Vector3(-0.66144, 0, 0.41513)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_osdm8"]
+_data = {
+&"RESET": SubResource("Animation_a6ng1"),
+&"ads": SubResource("Animation_osdm8"),
+&"ads_fire": SubResource("Animation_howwe"),
+&"fire": SubResource("Animation_0lp18")
+}
+
+[node name="gewehr-43" instance=ExtResource("1_0lp18")]
+transform = Transform3D(1.8, 0, 0, 0, 1.8, 0, 0, 0, 1.8, 0, 0, 0)
+script = ExtResource("2_a6ng1")
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.103464, 0, 0, 0, -4.52254e-09, 0.103464, 0, -0.103464, -4.52254e-09, 0, 0, 0)
+rotation_order = 0
+
+[node name="aimcast" type="RayCast3D" parent="Sketchfab_model" index="1"]
+transform = Transform3D(-1.68992e-07, -3.86609, -1.68992e-07, 3.86609, -1.68992e-07, -1.68992e-07, 1.68992e-07, -1.68992e-07, 3.86609, 0, -1.26744e-08, 0.289957)
+target_position = Vector3(0, -150, 0)
+
+[node name="animation_player" type="AnimationPlayer" parent="." index="1"]
+libraries = {
+&"": SubResource("AnimationLibrary_osdm8")
+}
+speed_scale = 0.8
