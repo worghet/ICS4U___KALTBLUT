@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfcxxdr8ftki7"]
+
+[ext_resource type="Texture2D" uid="uid://div1rs237svwl" path="res://textures/dark_grid.png" id="1_nnsk1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
+albedo_texture = ExtResource("1_nnsk1")
+uv1_triplanar = true
+
+[node name="world" type="Node3D"]
+
+[node name="DemoTerrianBuilder" type="CSGCombiner3D" parent="."]
+
+[node name="DemoFloor" type="CSGBox3D" parent="DemoTerrianBuilder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+size = Vector3(45, 0.5, 45)
+material = SubResource("StandardMaterial3D_rwgxs")
