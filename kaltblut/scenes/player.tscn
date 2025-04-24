@@ -14,5 +14,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.516914, 0)
 [node name="camera" type="Camera3D" parent="head" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.121476, 0)
 
-[node name="gewehr-43" parent="head/camera" index="0" instance=ExtResource("3_qhqgy")]
+[node name="rifle" parent="head/camera" index="0" instance=ExtResource("3_qhqgy")]
 transform = Transform3D(-7.86805e-08, 0, 1.8, 0, 1.8, 0, -1.8, 0, -7.86805e-08, 0.283833, -0.205262, -0.449339)

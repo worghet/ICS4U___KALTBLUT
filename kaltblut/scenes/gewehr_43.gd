@@ -1,19 +1,75 @@
 extends Node3D
 
+# == CONSTANTS ==================================
 
-@export var damage : float = 50
+const DAMAGE : float = 25
+const RECHARGE_TIME : float = 0.65
 
-@onready var aimcast := $Sketchfab_model/aimcast
+# == VARIABLES ==================================
+
+var can_shoot : bool = true
+var ads_toggled : bool = false
+
+# == REFERENCES TO OTHER NODES ==================
+
+@onready var cast_ray := $Sketchfab_model/cast_ray
+@onready var animation_player := $animation_player
+
+# == METHODS ====================================
 
 
-func fire() -> void:
-	if aimcast.is_colliding() and aimcast.get_collider() is CharacterBody3D:
-		var target : CharacterBody3D = aimcast.get_collider()
+# Perform the actual shooting.
+func hitscan() -> void:
+	
+	# If the ray cast from the barrel of the gun has collided with a CharacterBody3D.
+	if cast_ray.is_colliding() and cast_ray.get_collider() is CharacterBody3D:
+		
+		# Save the object it collided with (not needed, but safe).
+		var target : CharacterBody3D = cast_ray.get_collider()
+		
+		# Check if this object is in the enemies group.
 		if target.is_in_group("enemies"):
-			print("enemy his")
-			target.health -= damage
-	$animation_player.play("fire")
+			
+			# Take away health based on rifle damage.
+			target.health -= DAMAGE
+
+# Shoot and play the animation.
+func fire() -> void:
+	
+	# Check if the gun still needs to recharge.
+	if can_shoot:
+		
+		# Set the gun to a recharging state.
+		can_shoot = false
+		
+		# Perform hitscan shot.
+		hitscan()
+		
+		# Check which state the rifle is in; and play correct animation.
+		if ads_toggled:
+			animation_player.play("ads_fire")
+		else:	
+			animation_player.play("fire")
+	
+		# Start a timer for a constant amount of time.
+		await get_tree().create_timer(RECHARGE_TIME).timeout
+
+		# Update the variable to allow shooting.
+		can_shoot = true
+
+# Play the animation to enter ads, update variable.
+func enterADS() -> void:
+	animation_player.play("ads")
+	ads_toggled = true
+	
+# Play the animation to leave ads, update variable.
+func stopADS() -> void:
+	animation_player.play_backwards("ads")
+	ads_toggled = false
 
 
-func ads() -> void:
-	$animation_player.play("ads")
+# == GETTER METHOD ==============================
+
+
+func isADS() -> bool:
+	return ads_toggled

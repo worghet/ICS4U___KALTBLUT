@@ -114,7 +114,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.02, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.025, 0, 0), Vector3(0, 0, 0)]
+"values": [Vector3(-0.2, 0.05, -0.158), Vector3(-0.225, 0.05, -0.158), Vector3(-0.2, 0.05, -0.158)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -157,7 +157,7 @@ script = ExtResource("2_a6ng1")
 transform = Transform3D(0.103464, 0, 0, 0, -4.52254e-09, 0.103464, 0, -0.103464, -4.52254e-09, 0, 0, 0)
 rotation_order = 0
 
-[node name="aimcast" type="RayCast3D" parent="Sketchfab_model" index="1"]
+[node name="cast_ray" type="RayCast3D" parent="Sketchfab_model" index="1"]
 transform = Transform3D(-1.68992e-07, -3.86609, -1.68992e-07, 3.86609, -1.68992e-07, -1.68992e-07, 1.68992e-07, -1.68992e-07, 3.86609, 0, -1.26744e-08, 0.289957)
 target_position = Vector3(0, -150, 0)
 
@@ -165,4 +165,6 @@ target_position = Vector3(0, -150, 0)
 libraries = {
 &"": SubResource("AnimationLibrary_osdm8")
 }
-speed_scale = 0.8
+speed_scale = 0.65
+
+[connection signal="animation_finished" from="animation_player" to="." method="_on_animation_player_animation_finished"]

@@ -1,4 +1,3 @@
-# PLAYER SCRIPT
 extends "res://scripts/character.gd"
 
 # == CONSTANTS ==============================
@@ -9,8 +8,10 @@ const EnemyScene := preload("res://scenes/enemy.tscn")
 
 var head : Node3D
 var camera : Camera3D 
+var rifle : Node3D
 
 @export var MOUSE_SENSITIVITY : float = 0.001
+#@export var CAMERA_FOV : float = 75.0
 
 # == METHODS ================================
 
@@ -20,8 +21,9 @@ func _ready() -> void:
 	# Initialize variables.
 	head = $head
 	camera = $head/camera
-	
-	
+	rifle = $head/camera/rifle
+		
+# What to do regarding movement each frame.
 func _process_movement(delta: float) -> void:
 	
 	# -- PROCESS JUMP ------------------------------
@@ -46,39 +48,54 @@ func _process_movement(delta: float) -> void:
 	else:
 		velocity.z = 0.0
 		velocity.x = 0.0
-		
+
+# How to handle set inputs.
 func _input(event: InputEvent) -> void:
 	
-	# -- MOUSE MOVEMENT ------------------------------------------------
+	# -- MOUSE ACTION ------------------------------------------------
 	
+	# If the mouse was moved, and the screen was in "focused" mode.
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		
-		# rotate the body of the character
+		# Rotate the BODY of the player in relation to the horizontal movement of the mouse.
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		
-		# rotate head
+		# Rotate the CAMERA of the player in relation to the vertical movement of the mouse.
 		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-75), deg_to_rad(75))
 
-
-
+	# If the right mouse button is pressed, enter ADS; if released, exit it.
 	if event.is_action_pressed("right_mouse_button"):
-		$"head/camera/gewehr-43/animation_player".play("ads")
+		rifle.enterADS()
 	elif event.is_action_released("right_mouse_button"):
-		$"head/camera/gewehr-43/animation_player".play_backwards("ads")
+		rifle.stopADS()
 	
-
+	# Check if the left mouse button was pressed.
 	if event.is_action_pressed("left_mouse_button"):
+		
+		# If the game window is not currently focused; focus it.
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			$"head/camera/gewehr-43".fire()
 		
+		# Otherwise, fire the rifle.
+		else:
+			rifle.fire()
 
+	# -- CHECK OTHER KEYS --------------------------------------------
+
+	# Check if the escape key was pressed.
 	if event.is_action_pressed("escape"):
+		
+		# TODO Implement pause menu here.
+		
+		# Make the cursor visible.
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+
+
 	# -- FOR COMBAT TESTING ---------------------------------------------
+
+
 
 	if event.is_action_pressed("spawn_enemy"):
 		var enemy_instance := EnemyScene.instantiate()

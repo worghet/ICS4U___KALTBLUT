@@ -11,7 +11,7 @@ material = SubResource("StandardMaterial3D_7p1mj")
 
 [node name="entity" groups=["enemies"] instance=ExtResource("1_7p1mj")]
 script = ExtResource("2_md0e3")
-health = 200
+health = 100
 
 [node name="mesh" parent="." index="0"]
 mesh = SubResource("CapsuleMesh_md0e3")
