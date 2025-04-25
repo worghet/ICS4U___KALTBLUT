@@ -27,11 +27,8 @@ func hitscan() -> void:
 		# Save the object it collided with (not needed, but safe).
 		var target : CharacterBody3D = cast_ray.get_collider()
 		
-		# Check if this object is in the enemies group.
-		if target.is_in_group("enemies"):
-			
-			# Take away health based on rifle damage.
-			target.health -= DAMAGE
+		# Take away health based on rifle damage.
+		target.health -= DAMAGE
 
 # Shoot and play the animation.
 func fire() -> void:

@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var movement_speed: float = 10.0
 
 # Jump force.
-@export var jump_force: float = 5.0
+@export var jump_force: float = 2.0
 
 # How much gravity affects the character.
 @export var gravity: float = -9.8

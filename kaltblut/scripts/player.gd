@@ -10,6 +10,8 @@ var head : Node3D
 var camera : Camera3D 
 var rifle : Node3D
 
+var health := 50
+
 @export var MOUSE_SENSITIVITY : float = 0.001
 #@export var CAMERA_FOV : float = 75.0
 
@@ -22,6 +24,11 @@ func _ready() -> void:
 	head = $head
 	camera = $head/camera
 	rifle = $head/camera/rifle
+		
+		
+func _process(delta: float) -> void:
+	if health <= 0:
+		print("you ded gng")
 		
 # What to do regarding movement each frame.
 func _process_movement(delta: float) -> void:
