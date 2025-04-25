@@ -10,6 +10,10 @@ var head : Node3D
 var camera : Camera3D 
 var rifle : Node3D
 
+
+const BOB_FREQUENCY : float = 1.5
+const BOB_AMPLITUDE : float = 0.1
+var bob_x : float = 0.0
 var health := 50
 
 @export var MOUSE_SENSITIVITY : float = 0.001
@@ -21,14 +25,20 @@ var health := 50
 func _ready() -> void:
 	
 	# Initialize variables.
-	head = $head
-	camera = $head/camera
-	rifle = $head/camera/rifle
+	head = $anim_soldier/head
+	camera = $anim_soldier/head/camera
+	rifle = $anim_soldier/head/camera/rifle
 		
 		
 func _process(delta: float) -> void:
+	
+
 	if health <= 0:
-		print("you ded gng")
+		$anim_soldier/AnimationPlayer.play("death")
+		rifle.hide()
+		await get_tree().create_timer(0.78).timeout
+		# Delete the enemy object from the game.
+		queue_free()
 		
 # What to do regarding movement each frame.
 func _process_movement(delta: float) -> void:
@@ -50,11 +60,16 @@ func _process_movement(delta: float) -> void:
 	if direction:
 		velocity.z = direction.z * movement_speed
 		velocity.x = direction.x * movement_speed
+		
+		bob_x += delta * velocity.length() * float(is_on_floor())
+		$anim_soldier.transform.origin = _headbob(bob_x)
 	
 	# If direction is zero (no inputs of WASD have been pressed).
 	else:
 		velocity.z = 0.0
 		velocity.x = 0.0
+		#$anim_soldier.transform.origin.y = -0.15
+
 
 # How to handle set inputs.
 func _input(event: InputEvent) -> void:
@@ -64,18 +79,22 @@ func _input(event: InputEvent) -> void:
 	# If the mouse was moved, and the screen was in "focused" mode.
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		
+		
 		# Rotate the BODY of the player in relation to the horizontal movement of the mouse.
 		rotate_y(-event.relative.x * MOUSE_SENSITIVITY)
 		
 		# Rotate the CAMERA of the player in relation to the vertical movement of the mouse.
-		camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-75), deg_to_rad(75))
+		#camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
+		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-75), deg_to_rad(75))
 
 	# If the right mouse button is pressed, enter ADS; if released, exit it.
 	if event.is_action_pressed("right_mouse_button"):
 		rifle.enterADS()
+		$anim_soldier/AnimationPlayer.play_backwards("rifle down")
 	elif event.is_action_released("right_mouse_button"):
 		rifle.stopADS()
+		$anim_soldier/AnimationPlayer.play("rifle down")
+		
 	
 	# Check if the left mouse button was pressed.
 	if event.is_action_pressed("left_mouse_button"):
@@ -86,7 +105,10 @@ func _input(event: InputEvent) -> void:
 		
 		# Otherwise, fire the rifle.
 		else:
-			rifle.fire()
+			if rifle.isADS():
+				if rifle.canShoot():
+					rifle.fire()	
+					$anim_soldier/AnimationPlayer.play("fire")
 
 	# -- CHECK OTHER KEYS --------------------------------------------
 
@@ -109,3 +131,14 @@ func _input(event: InputEvent) -> void:
 		enemy_instance.global_transform.origin += Vector3(0, 1, 0)
 		get_tree().current_scene.add_child(enemy_instance)
 		print("added enemy!")
+
+
+
+func _headbob(time : float) -> Vector3:
+	var pos := Vector3.ZERO
+	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.2
+	pos.x = cos(time * BOB_FREQUENCY / 2) * BOB_AMPLITUDE
+	
+	#if pos.y == -BOB_AMPLITUDE:
+	
+	return pos

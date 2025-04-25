@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dp3a6c6k2m4r"
-path="res://.godot/imported/gewehr_43.glb-9a8c4b4729f450bf76fa09c8cba1dcc7.scn"
+path="res://.godot/imported/gewehr_43.glb-8f2a554b3a18590f27e7eba690131f46.scn"
 
 [deps]
 
-source_file="res://textures/gewehr_43.glb"
-dest_files=["res://.godot/imported/gewehr_43.glb-9a8c4b4729f450bf76fa09c8cba1dcc7.scn"]
+source_file="res://imports/models/gewehr_43.glb"
+dest_files=["res://.godot/imported/gewehr_43.glb-8f2a554b3a18590f27e7eba690131f46.scn"]
 
 [params]
 

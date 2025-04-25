@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c7swlqfn0artd"]
+[gd_scene load_steps=8 format=3 uid="uid://c7swlqfn0artd"]
 
 [ext_resource type="PackedScene" uid="uid://cpdsqagh4uabv" path="res://scenes/entity.tscn" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://dkn30ignxe6ok" path="res://scripts/enemy.gd" id="2_md0e3"]
 [ext_resource type="PackedScene" uid="uid://do568pp650j5i" path="res://scenes/gewehr-43.tscn" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://csj3y84s0sndg" path="res://scenes/anim_soldier.tscn" id="4_5uy6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p1mj"]
 albedo_color = Color(0.980392, 0.388235, 0.294118, 1)
@@ -17,24 +18,33 @@ radius = 20.0
 script = ExtResource("2_md0e3")
 health = 100
 voilence = 0
-TURN_SPEED = 2.0
+TURN_SPEED = 1.4
 
 [node name="mesh" parent="." index="0"]
+visible = false
 mesh = SubResource("CapsuleMesh_md0e3")
 
-[node name="gewehr-43" parent="." index="2" instance=ExtResource("3_4ra3w")]
-transform = Transform3D(-7.86805e-08, 0, 1.8, 0, 1.8, 0, -1.8, 0, -7.86805e-08, 0.563351, 0.146332, -0.478365)
+[node name="collision-shape" parent="." index="1"]
+visible = false
 
-[node name="animation_player" type="AnimationPlayer" parent="." index="3"]
+[node name="animation_player" type="AnimationPlayer" parent="." index="2"]
 
-[node name="sight_range" type="Area3D" parent="." index="4"]
+[node name="sight_range" type="Area3D" parent="." index="3"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sight_range" index="0"]
 shape = SubResource("SphereShape3D_4ra3w")
 
-[node name="eyes" type="RayCast3D" parent="." index="5"]
+[node name="eyes" type="RayCast3D" parent="." index="4"]
 
-[node name="shoot_timer" type="Timer" parent="." index="6"]
+[node name="shoot_timer" type="Timer" parent="." index="5"]
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="6"]
+
+[node name="anim_soldier" parent="." index="7" instance=ExtResource("4_5uy6h")]
+transform = Transform3D(-0.355491, 0, -3.1078e-08, 0, 0.355491, 0, 3.1078e-08, 0, -0.355491, 0, -0.340476, 0)
+
+[node name="gewehr-43" parent="." index="8" instance=ExtResource("3_4ra3w")]
+transform = Transform3D(-7.86805e-08, 0, 1.8, 0, 1.8, 0, -1.8, 0, -7.86805e-08, 0.386337, 0.259214, -0.44793)
 
 [connection signal="body_entered" from="sight_range" to="." method="_on_sight_range_body_entered"]
 [connection signal="body_exited" from="sight_range" to="." method="_on_sight_range_body_exited"]

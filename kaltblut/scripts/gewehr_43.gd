@@ -2,8 +2,8 @@ extends Node3D
 
 # == CONSTANTS ==================================
 
-const DAMAGE : float = 25
-const RECHARGE_TIME : float = 0.65
+const DAMAGE : float = 100
+const RECHARGE_TIME : float = 0.4
 
 # == VARIABLES ==================================
 
@@ -32,26 +32,19 @@ func hitscan() -> void:
 
 # Shoot and play the animation.
 func fire() -> void:
-	
-	# Check if the gun still needs to recharge.
-	if can_shoot:
-		
-		# Set the gun to a recharging state.
-		can_shoot = false
-		
+	# Set the gun to a recharging state.
+	can_shoot = false
+	if ads_toggled:
 		# Perform hitscan shot.
 		hitscan()
-		
+			
 		# Check which state the rifle is in; and play correct animation.
-		if ads_toggled:
-			animation_player.play("ads_fire")
-		else:	
-			animation_player.play("fire")
-	
+		animation_player.play("ads_fire")
+
+		
 		# Start a timer for a constant amount of time.
 		await get_tree().create_timer(RECHARGE_TIME).timeout
-
-		# Update the variable to allow shooting.
+			# Update the variable to allow shooting.
 		can_shoot = true
 
 # Play the animation to enter ads, update variable.
@@ -70,3 +63,6 @@ func stopADS() -> void:
 
 func isADS() -> bool:
 	return ads_toggled
+
+func canShoot() -> bool:
+	return can_shoot

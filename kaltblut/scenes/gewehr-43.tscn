@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://do568pp650j5i"]
 
-[ext_resource type="PackedScene" uid="uid://dp3a6c6k2m4r" path="res://textures/gewehr_43.glb" id="1_0lp18"]
-[ext_resource type="Script" uid="uid://kwfq3etbe4vj" path="res://scenes/gewehr_43.gd" id="2_a6ng1"]
+[ext_resource type="PackedScene" uid="uid://dp3a6c6k2m4r" path="res://imports/models/gewehr_43.glb" id="1_0lp18"]
+[ext_resource type="Script" uid="uid://kwfq3etbe4vj" path="res://scripts/gewehr_43.gd" id="2_a6ng1"]
 
 [sub_resource type="Animation" id="Animation_a6ng1"]
 length = 0.001
@@ -56,7 +56,19 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-0.2, 0.05, -0.158)]
+"values": [Vector3(0, -0.15, -0.1), Vector3(-0.1, 0.002, -0.158)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sketchfab_model:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.74533, 0, 1.5708), Vector3(-1.5708, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_howwe"]
@@ -73,7 +85,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.02, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-0.2, 0.05, -0.158), Vector3(-0.225, 0.05, -0.158), Vector3(-0.2, 0.05, -0.158)]
+"values": [Vector3(-0.2, 0.002, -0.158), Vector3(-0.1, 0.002, -0.158), Vector3(-0.1, 0.002, -0.158)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -85,7 +97,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.02, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(-1.5708, 0, 0), Vector3(-1.5708, -0.174533, 0), Vector3(-1.5708, 0, 0)]
+"values": [Vector3(-1.5708, 0, 0), Vector3(-1.5708, 0, 0), Vector3(-1.5708, 0, 0)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -157,8 +169,116 @@ script = ExtResource("2_a6ng1")
 transform = Transform3D(0.103464, 0, 0, 0, -3.74539e-07, 0.103464, 0, -0.103464, -3.74539e-07, 0, 0, 0)
 rotation_order = 0
 
+[node name="Cube_0" parent="Sketchfab_model/Root/Cube" index="0"]
+transform = Transform3D(1, -2.27374e-13, 2.98023e-08, -2.27374e-13, 1, -3.41061e-13, -2.98023e-08, 0, 1, -1.24093, -9.88181e-06, 2.14935)
+
+[node name="Cube_001_0" parent="Sketchfab_model/Root/Cube_001" index="0"]
+transform = Transform3D(1, -1.13687e-13, 0, 0, 1, -1.13687e-12, 0, -2.84217e-14, 1, -1.21184, -1.95209e-05, 2.75897)
+
+[node name="Cube_002_0" parent="Sketchfab_model/Root/Cube_002" index="0"]
+transform = Transform3D(1, -9.09495e-13, 5.96046e-08, -5.68434e-14, 1, 0, -5.96046e-08, -3.18323e-12, 1, -9.30995, -1.5841e-05, 22.9223)
+
+[node name="Cube_003_0" parent="Sketchfab_model/Root/Cube_003" index="0"]
+transform = Transform3D(1, -4.54747e-13, 0, 0, 1, 3.12639e-13, 0, -1.13687e-12, 1, -8.28824, -2.17668e-05, 14.3557)
+
+[node name="Cube_004_0" parent="Sketchfab_model/Root/Cube_004" index="0"]
+transform = Transform3D(1, 9.09495e-13, -5.96046e-08, 1.13687e-13, 1, -5.68434e-14, 5.96046e-08, 2.27374e-13, 1, -14.2739, -2.81585e-05, 24.7232)
+
+[node name="Cube_005_0" parent="Sketchfab_model/Root/Cube_005" index="0"]
+transform = Transform3D(1, -2.27374e-13, -5.96046e-08, 0, 1, 5.68434e-13, 5.96046e-08, -1.7053e-13, 1, -8.32446, -5.18306e-05, 14.4184)
+
+[node name="Cylinder_0" parent="Sketchfab_model/Root/Cylinder" index="0"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, -8.9407e-08, 5.96046e-08, 0, 1, 5.73312, -3.31054, 3.82238)
+
+[node name="Cylinder_001_0" parent="Sketchfab_model/Root/Cylinder_001" index="0"]
+transform = Transform3D(1, -1.86265e-07, 0, -7.45058e-09, 1, 0, 0, 1.49012e-08, 1, -4.79218, -2.76697, -3.19511)
+
+[node name="Cube_006_0" parent="Sketchfab_model/Root/Cube_006" index="0"]
+transform = Transform3D(1, 5.68434e-14, 0, 0, 1, 3.41061e-13, 0, 2.27374e-13, 1, -5.24466, -5.70673e-05, 9.08401)
+
+[node name="Cube_007_0" parent="Sketchfab_model/Root/Cube_007" index="0"]
+transform = Transform3D(1, 0, 0, -4.54747e-13, 1, 0, 0, 5.11591e-13, 1, -26.4586, -0.000164739, 45.8276)
+
+[node name="Cube_008_0" parent="Sketchfab_model/Root/Cube_008" index="0"]
+transform = Transform3D(1, 1.13687e-13, -5.96046e-08, -2.27374e-13, 1, 1.13687e-13, 5.96046e-08, 6.25278e-13, 1, -5.96608, -5.84961e-05, 10.3336)
+
+[node name="Cube_009_0" parent="Sketchfab_model/Root/Cube_009" index="0"]
+transform = Transform3D(1, -2.27374e-13, 2.98023e-08, -2.27374e-13, 1, -3.41061e-13, -2.98023e-08, 0, 1, -1.24093, -9.88181e-06, 2.14935)
+
+[node name="Cube_010_0" parent="Sketchfab_model/Root/Cube_010" index="0"]
+transform = Transform3D(1, 0, -2.98023e-08, 1.13687e-13, 1, 3.41061e-13, 2.98023e-08, 0, 1, -2.64502, -1.27624e-05, 4.5813)
+
+[node name="Cylinder_002_0" parent="Sketchfab_model/Root/Cylinder_002" index="0"]
+transform = Transform3D(1, 0, 4.54747e-13, 0, 1, -2.27374e-13, 0, 5.68434e-14, 1, -4.12892, -7.1515, -9.27382e-06)
+
+[node name="Cylinder_003_0" parent="Sketchfab_model/Root/Cylinder_003" index="0"]
+transform = Transform3D(1, 0, 9.09495e-13, 0, 1, -2.72848e-12, 0, 8.52651e-14, 1, -8.11976, -14.0638, -8.8598e-06)
+
+[node name="Cube_011_0" parent="Sketchfab_model/Root/Cube_011" index="0"]
+transform = Transform3D(1, 2.27374e-13, -2.98023e-08, 0, 1, -3.41061e-13, 2.98023e-08, -5.11591e-13, 1, -1.54725, -1.53307e-05, 2.67991)
+
+[node name="Cylinder_004_0" parent="Sketchfab_model/Root/Cylinder_004" index="0"]
+transform = Transform3D(1, 2.98023e-08, -1.49012e-07, -3.72529e-08, 1, -5.96046e-08, 2.98023e-08, 2.98023e-08, 1, 15.2114, -8.78172, 10.1414)
+
+[node name="Cube_012_0" parent="Sketchfab_model/Root/Cube_012" index="0"]
+transform = Transform3D(1, 9.09495e-13, -5.96046e-08, 5.68434e-14, 1, 5.68434e-14, 5.96046e-08, -1.13687e-12, 1, -5.03461, -1.10343e-05, 8.7202)
+
+[node name="Cube_013_0" parent="Sketchfab_model/Root/Cube_013" index="0"]
+transform = Transform3D(1, -4.54747e-13, -5.96046e-08, 0, 1, 2.84217e-13, 5.96046e-08, -4.54747e-13, 1, -4.76254, -1.41659e-05, 8.24898)
+
+[node name="Cube_014_0" parent="Sketchfab_model/Root/Cube_014" index="0"]
+transform = Transform3D(1, -6.82121e-13, 2.98023e-08, 5.68434e-14, 1, 2.55795e-13, -2.98023e-08, 1.36424e-12, 1, -5.00916, -1.34317e-05, 8.67611)
+
+[node name="Cube_016_0" parent="Sketchfab_model/Root/Cube_016" index="0"]
+transform = Transform3D(1, 0, -5.96046e-08, 2.27374e-13, 1, 5.68434e-14, 5.96046e-08, -1.13687e-13, 1, -3.42156, -1.42761e-05, 5.92632)
+
+[node name="Cube_016_1" parent="Sketchfab_model/Root/Cube_016" index="1"]
+transform = Transform3D(1, 0, -5.96046e-08, 2.27374e-13, 1, 5.68434e-14, 5.96046e-08, -1.13687e-13, 1, -3.42156, -1.42761e-05, 5.92632)
+
+[node name="Cube_016_2" parent="Sketchfab_model/Root/Cube_016" index="2"]
+transform = Transform3D(1, 0, -5.96046e-08, 2.27374e-13, 1, 5.68434e-14, 5.96046e-08, -1.13687e-13, 1, -3.42156, -1.42761e-05, 5.92632)
+
+[node name="Cube_017_0" parent="Sketchfab_model/Root/Cube_017" index="0"]
+transform = Transform3D(1, 0, 0, -1.13687e-13, 1, 5.68434e-13, 0, 1.13687e-13, 1, -5.06861, -3.15756e-05, 8.7791)
+
+[node name="Cylinder_005_0" parent="Sketchfab_model/Root/Cylinder_005" index="0"]
+transform = Transform3D(1, 5.68434e-13, 0, 9.09495e-13, 1, 0, 0, -3.41061e-13, 1, -11.833, -4.25368e-05, -6.83179)
+
+[node name="Cube_018_0" parent="Sketchfab_model/Root/Cube_018" index="0"]
+transform = Transform3D(1, 0, 2.98023e-08, -1.13687e-13, 1, -1.7053e-13, -2.98023e-08, -3.97904e-13, 1, -5.37324, -3.34554e-05, 9.30672)
+
+[node name="Cube_019_0" parent="Sketchfab_model/Root/Cube_019" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -3.97904e-13, 0, 9.09495e-13, 1, -2.78919, -1.35545e-05, 4.83103)
+
+[node name="Cube_020_0" parent="Sketchfab_model/Root/Cube_020" index="0"]
+transform = Transform3D(1, 2.27374e-13, 0, 1.13687e-13, 1, -2.84217e-14, 0, 0, 1, -10.905, -2.89624e-05, 18.888)
+
+[node name="Cube_021_0" parent="Sketchfab_model/Root/Cube_021" index="0"]
+transform = Transform3D(1, 4.54747e-13, 8.9407e-08, 1.7053e-13, 1, -3.12639e-13, -8.9407e-08, 2.27374e-13, 1, -14.7941, -2.7743e-05, 25.6241)
+
+[node name="Cylinder_006_0" parent="Sketchfab_model/Root/Cylinder_006" index="0"]
+transform = Transform3D(1, 8.9407e-08, 1.81899e-12, -8.9407e-08, 1, 1.81899e-12, -1.13687e-13, 1.42109e-14, 1, -14.7941, 25.6241, 1.60287e-05)
+
+[node name="Cylinder_007_0" parent="Sketchfab_model/Root/Cylinder_007" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -5.68434e-14, 1, -5.08214, 8.80252, 1.4914e-05)
+
+[node name="Cylinder_008_0" parent="Sketchfab_model/Root/Cylinder_008" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, -5.68434e-14, 1, -5.08214, 8.80252, 1.4914e-05)
+
+[node name="Cylinder_009_0" parent="Sketchfab_model/Root/Cylinder_009" index="0"]
+transform = Transform3D(1, 7.95808e-13, -2.98023e-08, -3.41061e-13, 1, -3.41061e-13, 2.98023e-08, 1.13687e-13, 1, -19.7036, -7.08295e-05, -11.3759)
+
+[node name="Cylinder_010_0" parent="Sketchfab_model/Root/Cylinder_010" index="0"]
+transform = Transform3D(1, -5.11591e-13, 5.96046e-08, 5.11591e-13, 1, 1.13687e-13, -5.96046e-08, 2.27374e-13, 1, 5.88324, -2.11488e-05, 3.39669)
+
+[node name="Cylinder_011_0" parent="Sketchfab_model/Root/Cylinder_011" index="0"]
+transform = Transform3D(1, -1.7053e-13, -5.96046e-08, -1.7053e-13, 1, 0, 5.96046e-08, -3.41061e-13, 1, 15.8517, -5.69829e-05, 9.15199)
+
+[node name="Cube_023_0" parent="Sketchfab_model/Root/Cube_023" index="0"]
+transform = Transform3D(1, -4.54747e-13, 0, 2.27374e-13, 1, 6.82121e-13, 0, 1.13687e-13, 1, -11.0117, -6.86646e-05, 19.0728)
+
 [node name="cast_ray" type="RayCast3D" parent="Sketchfab_model" index="1"]
-transform = Transform3D(-1.68992e-07, -3.86609, -1.68992e-07, 3.86609, -1.68992e-07, -1.68992e-07, 1.68992e-07, -1.68992e-07, 3.86609, 0, -1.26744e-08, 0.289957)
+transform = Transform3D(-1.68992e-07, -3.86609, -2.38419e-07, 3.86609, -1.68991e-07, -1.68991e-07, 1.68991e-07, -2.38419e-07, 3.86609, -0.247653, -1.55463e-06, 0.718904)
 target_position = Vector3(0, -150, 0)
 
 [node name="animation_player" type="AnimationPlayer" parent="." index="1"]

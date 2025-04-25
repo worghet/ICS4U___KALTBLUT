@@ -3,7 +3,7 @@ extends CharacterBody3D
 # == VARIABLES ==========================
 
 # Movement speed.
-@export var movement_speed: float = 10.0
+@export var movement_speed: float = 6.0
 
 # Jump force.
 @export var jump_force: float = 2.0
