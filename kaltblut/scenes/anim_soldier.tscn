@@ -52,5 +52,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_g0gdj")
 speed_scale = 2.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
-transform = Transform3D(1.39356, 0, -2.84217e-14, 0, 2.29157, 0, 0, 0, 1.61765, 2.31113e-08, 0.798726, -0.264362)
+transform = Transform3D(1.73118, 0, -4.26326e-14, 0, 2.29157, 0, 0, 0, 1.61765, -2.07505e-09, 0.798726, 0.0237363)
 shape = SubResource("CylinderShape3D_teqsd")

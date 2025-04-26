@@ -2,13 +2,19 @@ extends Node3D
 
 # == CONSTANTS ==================================
 
-const DAMAGE : float = 100
+const DAMAGE : float = 20
 const RECHARGE_TIME : float = 0.4
 
 # == VARIABLES ==================================
 
 var can_shoot : bool = true
 var ads_toggled : bool = false
+
+var gunshot_sounds : Array = [
+	preload("res://imports/sounds/RifleGunshot_1.mp3"),
+	preload("res://imports/sounds/RifleGunshot_2.mp3"),
+	preload("res://imports/sounds/RifleGunshot_4.mp3"),
+]
 
 # == REFERENCES TO OTHER NODES ==================
 
@@ -40,7 +46,11 @@ func fire() -> void:
 			
 		# Check which state the rifle is in; and play correct animation.
 		animation_player.play("ads_fire")
-
+		
+		#sound
+		
+		$Sketchfab_model/gunshot_sound.stream = gunshot_sounds[randi() % gunshot_sounds.size()]
+		$Sketchfab_model/gunshot_sound.play()
 		
 		# Start a timer for a constant amount of time.
 		await get_tree().create_timer(RECHARGE_TIME).timeout

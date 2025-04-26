@@ -14,7 +14,7 @@ var rifle : Node3D
 const BOB_FREQUENCY : float = 1.5
 const BOB_AMPLITUDE : float = 0.1
 var bob_x : float = 0.0
-var health := 50
+var health := 100
 
 @export var MOUSE_SENSITIVITY : float = 0.001
 #@export var CAMERA_FOV : float = 75.0
@@ -28,17 +28,32 @@ func _ready() -> void:
 	head = $anim_soldier/head
 	camera = $anim_soldier/head/camera
 	rifle = $anim_soldier/head/camera/rifle
+	$heal_timer.start()
 		
 		
 func _process(delta: float) -> void:
 	
-
-	if health <= 0:
-		$anim_soldier/AnimationPlayer.play("death")
-		rifle.hide()
-		await get_tree().create_timer(0.78).timeout
-		# Delete the enemy object from the game.
-		queue_free()
+	# DEATH
+	if health == 100:
+		$Control/BloodOverlay.visible = false
+	
+	else:
+		$Control/BloodOverlay.visible = true
+		
+		if health < 80:
+			$Control/BloodOverlay.modulate.a = 0.1
+		if health < 60:
+			$Control/BloodOverlay.modulate.a = 0.3
+		if health < 40:
+			$Control/BloodOverlay.modulate.a = 0.5
+		if health <= 0:
+			#$anim_soldier/AnimationPlayer.play("death")
+			$anim_soldier.hide()
+			camera.rotate_x(0.009)
+			rifle.hide()
+			await get_tree().create_timer(1).timeout
+			# Delete the enemy object from the game.
+			get_tree().reload_current_scene()
 		
 # What to do regarding movement each frame.
 func _process_movement(delta: float) -> void:
@@ -58,11 +73,18 @@ func _process_movement(delta: float) -> void:
 	
 	# If direction is a value which is not 0.
 	if direction:
-		velocity.z = direction.z * movement_speed
-		velocity.x = direction.x * movement_speed
+		
+		if rifle.isADS():
+			velocity.z = direction.z * movement_speed * 0.6
+			velocity.x = direction.x * movement_speed * 0.6
+		else:
+			velocity.z = direction.z * movement_speed
+			velocity.x = direction.x * movement_speed						
+
 		
 		bob_x += delta * velocity.length() * float(is_on_floor())
 		$anim_soldier.transform.origin = _headbob(bob_x)
+		
 	
 	# If direction is zero (no inputs of WASD have been pressed).
 	else:
@@ -128,6 +150,7 @@ func _input(event: InputEvent) -> void:
 
 	if event.is_action_pressed("spawn_enemy"):
 		var enemy_instance := EnemyScene.instantiate()
+		enemy_instance.set_path($player)
 		enemy_instance.global_transform.origin += Vector3(0, 1, 0)
 		get_tree().current_scene.add_child(enemy_instance)
 		print("added enemy!")
@@ -142,3 +165,8 @@ func _headbob(time : float) -> Vector3:
 	#if pos.y == -BOB_AMPLITUDE:
 	
 	return pos
+
+
+func _on_heal_timer_timeout() -> void:
+	if health < 100:
+		health += 20

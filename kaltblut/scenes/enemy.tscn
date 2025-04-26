@@ -16,16 +16,13 @@ radius = 20.0
 
 [node name="enemy" groups=["enemies"] instance=ExtResource("1_7p1mj")]
 script = ExtResource("2_md0e3")
-health = 100
+health = 60
 voilence = 0
 TURN_SPEED = 1.4
 
 [node name="mesh" parent="." index="0"]
 visible = false
 mesh = SubResource("CapsuleMesh_md0e3")
-
-[node name="collision-shape" parent="." index="1"]
-visible = false
 
 [node name="animation_player" type="AnimationPlayer" parent="." index="2"]
 
@@ -41,7 +38,6 @@ shape = SubResource("SphereShape3D_4ra3w")
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." index="6"]
 
 [node name="anim_soldier" parent="." index="7" instance=ExtResource("4_5uy6h")]
-transform = Transform3D(-0.355491, 0, -3.1078e-08, 0, 0.355491, 0, 3.1078e-08, 0, -0.355491, 0, -0.340476, 0)
 
 [node name="gewehr-43" parent="." index="8" instance=ExtResource("3_4ra3w")]
 transform = Transform3D(-7.86805e-08, 0, 1.8, 0, 1.8, 0, -1.8, 0, -7.86805e-08, 0.386337, 0.259214, -0.44793)

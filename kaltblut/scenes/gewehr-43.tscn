@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://do568pp650j5i"]
+[gd_scene load_steps=9 format=3 uid="uid://do568pp650j5i"]
 
 [ext_resource type="PackedScene" uid="uid://dp3a6c6k2m4r" path="res://imports/models/gewehr_43.glb" id="1_0lp18"]
 [ext_resource type="Script" uid="uid://kwfq3etbe4vj" path="res://scripts/gewehr_43.gd" id="2_a6ng1"]
+[ext_resource type="AudioStream" uid="uid://dxxwjdsl8xogq" path="res://imports/sounds/RifleGunshot_2.mp3" id="3_osdm8"]
 
 [sub_resource type="Animation" id="Animation_a6ng1"]
 length = 0.001
@@ -277,7 +278,11 @@ transform = Transform3D(1, -1.7053e-13, -5.96046e-08, -1.7053e-13, 1, 0, 5.96046
 [node name="Cube_023_0" parent="Sketchfab_model/Root/Cube_023" index="0"]
 transform = Transform3D(1, -4.54747e-13, 0, 2.27374e-13, 1, 6.82121e-13, 0, 1.13687e-13, 1, -11.0117, -6.86646e-05, 19.0728)
 
-[node name="cast_ray" type="RayCast3D" parent="Sketchfab_model" index="1"]
+[node name="gunshot_sound" type="AudioStreamPlayer3D" parent="Sketchfab_model" index="1"]
+transform = Transform3D(5.36955, 0, 0, 0, -1.94378e-05, -5.36955, 0, 5.36955, -1.94378e-05, 3.89834, 0.00807607, 0.757411)
+stream = ExtResource("3_osdm8")
+
+[node name="cast_ray" type="RayCast3D" parent="Sketchfab_model" index="2"]
 transform = Transform3D(-1.68992e-07, -3.86609, -2.38419e-07, 3.86609, -1.68991e-07, -1.68991e-07, 1.68991e-07, -2.38419e-07, 3.86609, -0.247653, -1.55463e-06, 0.718904)
 target_position = Vector3(0, -150, 0)
 

@@ -3,7 +3,7 @@ extends "res://scripts/character.gd"
 # == VARIABLES ==============================
 
 # TODO might change to blood in liters idk yet
-@export var health : int = 100
+@export var health : int = 60
 @export var voilence : int
 
 var target : Node3D
@@ -13,6 +13,16 @@ var target : Node3D
 @onready var raycast : RayCast3D = $"gewehr-43/Sketchfab_model/cast_ray"
 @onready var animation_player : AnimationPlayer = $animation_player
 @onready var shoot_timer : Timer = $shoot_timer
+
+
+
+
+
+
+@export var player_path : Node3D
+@onready var navigation_agent : NavigationAgent3D = $NavigationAgent3D
+
+
 
 enum {
 	IDLE,
@@ -37,14 +47,23 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(0.78).timeout
 		# Delete the enemy object from the game.
 		queue_free()
+		
+	velocity = Vector3.ZERO
 	match state:
 		IDLE:
 			# play anim for idle
+			
 			pass
 		ALERT:
-			# play anim for alert
+
 			eyes.look_at(target.global_transform.origin, Vector3.UP)
-			rotate_y(deg_to_rad(eyes.rotation.y * TURN_SPEED))
+			rotate_y(deg_to_rad(eyes.rotation.y * TURN_SPEED)) 
+			navigation_agent.set_target_position(target.global_transform.origin)
+			var next_nav_point := navigation_agent.get_next_path_position()
+			velocity = (next_nav_point - global_transform.origin).normalized() * movement_speed * 0.3
+			#$anim_soldier/AnimationPlayer.play_section("run_forward", 0, 0.25, -1, 0.2)
+			#$anim_soldier/AnimationPlayer.play_section_backwards("run_forward", 0.2, 0, -1, 0.2)
+			move_and_slide()
 
 
 func _on_sight_range_body_entered(body: Node3D) -> void:
@@ -70,4 +89,7 @@ func _on_sight_range_body_exited(body: Node3D) -> void:
 func _on_shoot_timer_timeout() -> void:
 	$"gewehr-43".fire()
 	$anim_soldier/AnimationPlayer.play("fire")
-	print("BANG")
+	#print("BANG")
+
+func set_path(player : Node3D) -> void:
+	player_path = player
