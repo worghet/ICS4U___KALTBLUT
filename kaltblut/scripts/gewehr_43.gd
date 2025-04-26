@@ -3,7 +3,7 @@ extends Node3D
 # == CONSTANTS ==================================
 
 const DAMAGE : float = 20
-const RECHARGE_TIME : float = 0.4
+const RECHARGE_TIME : float = 0.35
 
 # == VARIABLES ==================================
 

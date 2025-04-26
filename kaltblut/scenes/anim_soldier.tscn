@@ -51,6 +51,7 @@ bones/31/rotation = Quaternion(0.301163, 0.08743, -0.027693, 0.949152)
 surface_material_override/0 = SubResource("StandardMaterial3D_g0gdj")
 
 [node name="AnimationPlayer" parent="." index="1"]
+reset_on_save = false
 speed_scale = 2.6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="2"]
