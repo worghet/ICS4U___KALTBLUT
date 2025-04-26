@@ -60,10 +60,23 @@ func _process(delta: float) -> void:
 			rotate_y(deg_to_rad(eyes.rotation.y * TURN_SPEED)) 
 			navigation_agent.set_target_position(target.global_transform.origin)
 			var next_nav_point := navigation_agent.get_next_path_position()
-			velocity = (next_nav_point - global_transform.origin).normalized() * movement_speed * 0.3
-			#$anim_soldier/AnimationPlayer.play_section("run_forward", 0, 0.25, -1, 0.2)
-			#$anim_soldier/AnimationPlayer.play_section_backwards("run_forward", 0.2, 0, -1, 0.2)
+
+			# Calculate horizontal movement direction only
+			var direction := next_nav_point - global_transform.origin
+			direction.y = 0  # Zero out the vertical component of the direction
+
+			if navigation_agent.distance_to_target() > 10:
+				velocity = direction.normalized() * movement_speed * 0.3
+				# You can also play the running animation if you want
+				# $anim_soldier/AnimationPlayer.play_section("run_forward", 0, 0.25, -1, 0.2)
+			elif navigation_agent.distance_to_target() == 10:
+				pass
+			else:
+				velocity = -direction.normalized() * movement_speed * 0.3
+
+			# Apply the movement
 			move_and_slide()
+
 
 
 func _on_sight_range_body_entered(body: Node3D) -> void:
