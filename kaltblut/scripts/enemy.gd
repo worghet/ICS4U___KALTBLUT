@@ -3,11 +3,13 @@ extends "res://scripts/character.gd"
 # == VARIABLES ==============================
 
 # TODO might change to blood in liters idk yet
-@export var health : int = 60
-@export var voilence : int
+@export var violence : int
 
 var target : Node3D
-@export var TURN_SPEED : float = 1.4
+
+var health : int = 60
+var TURN_SPEED : float = 3
+var FIRE_RATE : float = 1 # in seconds
 
 @onready var eyes : RayCast3D = $eyes
 @onready var raycast : RayCast3D = $"gewehr-43/Sketchfab_model/cast_ray"
@@ -25,8 +27,17 @@ var target : Node3D
 
 
 enum {
+
+	# Attacking or not attacking
 	IDLE,
 	ALERT,
+	
+	# Violence Level
+	PASSIVE, 
+	QUESTIONING,
+	AWARE,
+	AGGRESSIVE,
+	DEADLY
 }
 
 var state : int = IDLE
@@ -35,7 +46,22 @@ var state : int = IDLE
 
 # What to do when loaded.
 func _ready() -> void:
-	pass
+	match violence:
+		
+		PASSIVE:
+			shoot_timer.queue_free()
+		QUESTIONING:
+			pass
+		AWARE:
+			pass
+		AGGRESSIVE:
+			pass
+		DEADLY:
+			pass
+			
+
+	
+	
 # What to process each frame.
 func _process(delta: float) -> void:
 	
@@ -81,21 +107,23 @@ func _process(delta: float) -> void:
 
 func _on_sight_range_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player"):
-		print("ALERT!")
-		
-		$"gewehr-43".enterADS()
-		
-		state = ALERT
-		target = body
-		shoot_timer.start()
-		$anim_soldier/AnimationPlayer.play_backwards("rifle down")
+
+		if violence != PASSIVE:		
+			$"gewehr-43".enterADS()
+			
+			state = ALERT
+			target = body
+			shoot_timer.start()
+			$anim_soldier/AnimationPlayer.play_backwards("rifle down")
 		
 
 func _on_sight_range_body_exited(body: Node3D) -> void:
-	state = IDLE
-	$"gewehr-43".stopADS()
-	shoot_timer.stop()
-	$anim_soldier/AnimationPlayer.play("idle")
+
+	if violence != PASSIVE:
+		state = IDLE
+		$"gewehr-43".stopADS()
+		shoot_timer.stop()
+		$anim_soldier/AnimationPlayer.play("idle")
 	
 
 
@@ -106,3 +134,6 @@ func _on_shoot_timer_timeout() -> void:
 
 func set_path(player : Node3D) -> void:
 	player_path = player
+	
+func set_violence(violence_level : int) -> void:
+	violence = violence_level

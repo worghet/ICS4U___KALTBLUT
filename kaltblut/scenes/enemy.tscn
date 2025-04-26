@@ -16,9 +16,7 @@ radius = 20.0
 
 [node name="enemy" groups=["enemies"] instance=ExtResource("1_7p1mj")]
 script = ExtResource("2_md0e3")
-health = 60
-voilence = 0
-TURN_SPEED = 1.4
+violence = 0
 
 [node name="mesh" parent="." index="0"]
 visible = false

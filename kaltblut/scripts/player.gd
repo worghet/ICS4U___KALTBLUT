@@ -12,7 +12,7 @@ var rifle : Node3D
 
 
 const BOB_FREQUENCY : float = 1.5
-const BOB_AMPLITUDE : float = 0.1
+const BOB_AMPLITUDE : float = 0.075
 var bob_x : float = 0.0
 var health := 100
 
@@ -151,6 +151,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spawn_enemy"):
 		var enemy_instance := EnemyScene.instantiate()
 		enemy_instance.set_path($player)
+		#enemy_instance.set_violence(2)
 		enemy_instance.global_transform.origin += Vector3(0, 1, 0)
 		get_tree().current_scene.add_child(enemy_instance)
 		print("added enemy!")
@@ -159,7 +160,7 @@ func _input(event: InputEvent) -> void:
 
 func _headbob(time : float) -> Vector3:
 	var pos := Vector3.ZERO
-	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.2
+	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.3
 	pos.x = cos(time * BOB_FREQUENCY / 2) * BOB_AMPLITUDE
 	
 	#if pos.y == -BOB_AMPLITUDE:

@@ -35,6 +35,7 @@ func hitscan() -> void:
 		
 		# Take away health based on rifle damage.
 		target.health -= DAMAGE
+		
 
 # Shoot and play the animation.
 func fire() -> void:
