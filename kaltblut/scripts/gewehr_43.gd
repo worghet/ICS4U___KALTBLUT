@@ -11,9 +11,9 @@ var can_shoot : bool = true
 var ads_toggled : bool = false
 
 var gunshot_sounds : Array = [
-	preload("res://imports/sounds/RifleGunshot_1.mp3"),
-	preload("res://imports/sounds/RifleGunshot_2.mp3"),
-	preload("res://imports/sounds/RifleGunshot_4.mp3"),
+	preload("res://imports/sounds/rifle/RifleGunshot_1.mp3"),
+	preload("res://imports/sounds/rifle/RifleGunshot_2.mp3"),
+	preload("res://imports/sounds/rifle/RifleGunshot_4.mp3"),
 ]
 
 # == REFERENCES TO OTHER NODES ==================

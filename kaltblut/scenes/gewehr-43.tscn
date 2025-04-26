@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dp3a6c6k2m4r" path="res://imports/models/gewehr_43.glb" id="1_0lp18"]
 [ext_resource type="Script" uid="uid://kwfq3etbe4vj" path="res://scripts/gewehr_43.gd" id="2_a6ng1"]
-[ext_resource type="AudioStream" uid="uid://dxxwjdsl8xogq" path="res://imports/sounds/RifleGunshot_2.mp3" id="3_osdm8"]
+[ext_resource type="AudioStream" uid="uid://dxxwjdsl8xogq" path="res://imports/sounds/rifle/RifleGunshot_2.mp3" id="3_osdm8"]
 
 [sub_resource type="Animation" id="Animation_a6ng1"]
 length = 0.001

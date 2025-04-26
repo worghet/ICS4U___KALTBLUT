@@ -1,7 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfcxxdr8ftki7"]
+[gd_scene load_steps=8 format=3 uid="uid://dfcxxdr8ftki7"]
 
+[ext_resource type="Script" uid="uid://ddl6xsfrx6xdh" path="res://scenes/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://tdeg5iqfiug5" path="res://scenes/environment.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://bv3at001lt1ea" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="AudioStream" uid="uid://bgt3phriwbwvm" path="res://imports/sounds/wind/Wind_1.mp3" id="4_71j4m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rwgxs"]
 vertices = PackedVector3Array(6.52662, 0.5, 21.9927, 6.52662, 0.5, 8.74267, 6.02662, 0.5, 8.49267, -21.9734, 0.5, 21.9927, 6.02662, 0.5, -8.50733, 6.52662, 0.5, -8.75733, 6.52662, 0.5, -22.0073, -21.9734, 0.5, -22.0073, 7.27662, 0.5, -8.50733, 22.0266, 0.5, -7.25733, 22.0266, 0.5, -22.0073, 7.27662, 0.5, -7.00733, 7.27662, 0.5, 6.99267, 22.0266, 0.5, 7.24267, 7.27662, 0.5, 8.49267, 22.0266, 0.5, 21.9927)
@@ -16,6 +18,7 @@ uv1_triplanar = true
 albedo_color = Color(0.783523, 0.783523, 0.783523, 1)
 
 [node name="world" type="Node3D"]
+script = ExtResource("1_k0juu")
 
 [node name="environment" parent="." instance=ExtResource("1_rwgxs")]
 
@@ -37,3 +40,10 @@ material = SubResource("StandardMaterial3D_rwgxs")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63045, 4.41779, 0)
 size = Vector3(0.164062, 8.83557, 16.0276)
 material = SubResource("StandardMaterial3D_nnsk1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_71j4m")
+volume_db = -14.054
+pitch_scale = 0.71
+autoplay = true
+parameters/looping = true

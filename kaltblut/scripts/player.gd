@@ -115,6 +115,8 @@ func _input(event: InputEvent) -> void:
 		$anim_soldier/AnimationPlayer.play_backwards("rifle down")
 	elif event.is_action_released("right_mouse_button"):
 		rifle.stopADS()
+
+		
 		$anim_soldier/AnimationPlayer.play("rifle down")
 		
 	
@@ -151,7 +153,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("spawn_enemy"):
 		var enemy_instance := EnemyScene.instantiate()
 		enemy_instance.set_path($player)
-		#enemy_instance.set_violence(2)
+		enemy_instance.set_violence(3)
 		enemy_instance.global_transform.origin += Vector3(0, 1, 0)
 		get_tree().current_scene.add_child(enemy_instance)
 		print("added enemy!")
@@ -162,7 +164,11 @@ func _headbob(time : float) -> Vector3:
 	var pos := Vector3.ZERO
 	pos.y = sin(time * BOB_FREQUENCY) * BOB_AMPLITUDE - 0.3
 	pos.x = cos(time * BOB_FREQUENCY / 2) * BOB_AMPLITUDE
-	
+	var target_y := -BOB_AMPLITUDE - 0.3
+	var epsilon := 0.01  # Small tolerance for floating-point comparison
+	if abs(pos.y - target_y) < epsilon:
+		print("step called1")
+		$anim_soldier.step()
 	#if pos.y == -BOB_AMPLITUDE:
 	
 	return pos
