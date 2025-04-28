@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dw7aoxwqo0an2"
+
+[deps]
+
+files=["res://imports/languages/hello.en.translation", "res://imports/languages/hello.ru.translation", "res://imports/languages/hello.es.translation", "res://imports/languages/hello.fr.translation", "res://imports/languages/hello.ge.translation"]
+
+source_file="res://imports/languages/hello.csv"
+dest_files=["res://imports/languages/hello.en.translation", "res://imports/languages/hello.ru.translation", "res://imports/languages/hello.es.translation", "res://imports/languages/hello.fr.translation", "res://imports/languages/hello.ge.translation"]
+
+[params]
+
+compress=true
+delimiter=0
