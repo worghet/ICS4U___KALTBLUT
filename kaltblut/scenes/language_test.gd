@@ -14,7 +14,6 @@ enum {
 var LANGUAGE : String = TranslationServer.get_locale()
 
 func _on_button_2_pressed() -> void:
-	#changeGameLanguage(RUSSIAN)
 	$CenterContainer/GridContainer/Label.text = tr("GREETING")
 
 

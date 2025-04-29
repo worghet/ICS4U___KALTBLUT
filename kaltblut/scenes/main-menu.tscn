@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://qsoo1jqwtxvr"]
+
+[ext_resource type="FontFile" uid="uid://berylv85eo6t1" path="res://imports/fonts/VCR_OSD_MONO_1.001.ttf" id="1_rk22q"]
+[ext_resource type="Script" uid="uid://mjdava25eauj" path="res://scenes/main_menu.gd" id="1_u4kki"]
+
+[sub_resource type="ImageTexture" id="ImageTexture_rk22q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dirle"]
+font = ExtResource("1_rk22q")
+font_size = 140
+
+[sub_resource type="LabelSettings" id="LabelSettings_u4kki"]
+font = ExtResource("1_rk22q")
+font_size = 42
+
+[node name="menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u4kki")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ImageTexture_rk22q")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -241.0
+offset_right = 286.0
+grow_vertical = 0
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "KALTBLUT"
+label_settings = SubResource("LabelSettings_dirle")
+
+[node name="subtitle" type="Label" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "MIKE BUSHKOV (ICS4U___04 )"
+label_settings = SubResource("LabelSettings_u4kki")
+
+[node name="play" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "KEY_PLAY
+"
+
+[node name="Button2" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "SETTINGS"
+
+[node name="Button3" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+text = "QUIT"
+
+[connection signal="pressed" from="MarginContainer/GridContainer/play" to="." method="_on_play_pressed"]
