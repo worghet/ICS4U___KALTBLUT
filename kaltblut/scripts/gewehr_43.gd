@@ -16,6 +16,10 @@ var gunshot_sounds : Array = [
 	preload("res://imports/sounds/rifle/RifleGunshot_4.mp3"),
 ]
 
+var rifle_holster := preload("res://imports/sounds/rifle/RifleHolster.mp3")
+var rifle_unholster := preload("res://imports/sounds/rifle/RifleUnholster.mp3")
+
+
 # == REFERENCES TO OTHER NODES ==================
 
 @onready var cast_ray := $Sketchfab_model/cast_ray
@@ -61,11 +65,17 @@ func fire() -> void:
 # Play the animation to enter ads, update variable.
 func enterADS() -> void:
 	animation_player.play("ads")
+	await get_tree().create_timer(0.45).timeout
+	$"holster-sound".stream = rifle_holster
+	$"holster-sound".play()
 	ads_toggled = true
 	
 # Play the animation to leave ads, update variable.
 func stopADS() -> void:
 	animation_player.play_backwards("ads")
+	#await get_tree().create_timer(0.15).timeout
+	$"holster-sound".stream = rifle_unholster
+	$"holster-sound".play()
 	ads_toggled = false
 
 

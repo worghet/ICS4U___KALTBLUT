@@ -18,7 +18,14 @@ var RANGE_OF_FIRE: float = 5
 @onready var shoot_timer : Timer = $shoot_timer
 
 
-
+const enemy_screams : Array = [
+	
+	preload("res://imports/sounds/enemy-scream/EnemyScream_1.mp3"),
+	preload("res://imports/sounds/enemy-scream/EnemyScream_2.mp3"),
+	preload("res://imports/sounds/enemy-scream/EnemyScream_3.mp3"),
+	preload("res://imports/sounds/enemy-scream/EnemyScream_4.mp3")
+	
+]
 
 
 
@@ -67,9 +74,15 @@ func _ready() -> void:
 			
 
 	
-	
+var prevH : int = health
 # What to process each frame.
 func _process(delta: float) -> void:
+	
+		if health < prevH:
+			arrrg()
+		prevH = health
+	
+	
 		velocity = Vector3.ZERO
 		# If the health reaches 0 or less than 0.
 		if health <= 0:
@@ -158,3 +171,9 @@ func set_path(player : Node3D) -> void:
 	
 func set_violence(violence_level : int) -> void:
 	violence = violence_level
+
+func arrrg() -> void:
+	$arg.stream = enemy_screams[randi() % enemy_screams.size()]
+	$arg.play()
+	#await get_tree().create_timer(0.5).timeout
+	#$arg.stop()

@@ -24,6 +24,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	pass
 
+
 # [OVERRIDE] Process the movement of the character.
 func _process_movement(delta: float) -> void:
 	pass

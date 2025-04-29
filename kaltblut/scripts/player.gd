@@ -137,12 +137,12 @@ func _input(event: InputEvent) -> void:
 	# -- CHECK OTHER KEYS --------------------------------------------
 
 	# Check if the escape key was pressed.
-	if event.is_action_pressed("escape"):
-		
-		# TODO Implement pause menu here.
+	#if event.is_action_pressed("escape"):
+		#get_tree().paused = !get_tree().paused
+		#print("changed state to pause/unpause")
 		
 		# Make the cursor visible.
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 

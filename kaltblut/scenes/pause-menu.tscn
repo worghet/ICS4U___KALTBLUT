@@ -1,12 +1,16 @@
-[gd_scene format=3 uid="uid://ehl8yelpph3d"]
+[gd_scene load_steps=2 format=3 uid="uid://ehl8yelpph3d"]
+
+[ext_resource type="Script" uid="uid://dus8t87f1jja" path="res://scenes/pause_menu.gd" id="1_024ri"]
 
 [node name="menu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_024ri")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -15,3 +19,38 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(493, 332)
+
+[node name="left-right" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+mouse_filter = 0
+columns = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/left-right"]
+layout_mode = 2
+
+[node name="resume" type="Button" parent="CenterContainer/left-right/GridContainer"]
+layout_mode = 2
+text = "KEY_RESUME"
+
+[node name="settings" type="Button" parent="CenterContainer/left-right/GridContainer"]
+layout_mode = 2
+text = "KEY_SETTINGS"
+
+[node name="quit" type="Button" parent="CenterContainer/left-right/GridContainer"]
+layout_mode = 2
+text = "KEY_QUIT"
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/left-right"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/left-right/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/left-right/PanelContainer/MarginContainer"]
+layout_mode = 2
+text = "KEY_DIARY_ENTRIES_UNLOCKED"
+
+[connection signal="pressed" from="CenterContainer/left-right/GridContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/left-right/GridContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/left-right/GridContainer/quit" to="." method="_on_quit_pressed"]
