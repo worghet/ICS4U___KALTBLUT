@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://csj3y84s0sndg"]
 
 [ext_resource type="PackedScene" uid="uid://pijhr1ydg2fh" path="res://imports/models/anim_soldier.glb" id="1_yqypp"]
-[ext_resource type="Script" uid="uid://eysrtav6c2kc" path="res://scenes/anim_soldier.gd" id="2_g0gdj"]
+[ext_resource type="Script" uid="uid://eysrtav6c2kc" path="res://scripts/anim_soldier.gd" id="2_g0gdj"]
 [ext_resource type="Texture2D" uid="uid://04y47djq87hx" path="res://imports/textures/Jager.png" id="2_teqsd"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g0gdj"]

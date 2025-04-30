@@ -1,6 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://ehl8yelpph3d"]
+[gd_scene load_steps=6 format=3 uid="uid://ehl8yelpph3d"]
 
-[ext_resource type="Script" uid="uid://dus8t87f1jja" path="res://scenes/pause_menu.gd" id="1_024ri"]
+[ext_resource type="Script" uid="uid://dus8t87f1jja" path="res://scripts/pause_menu.gd" id="1_024ri"]
+[ext_resource type="Theme" uid="uid://bk7as4gxm1c8l" path="res://ui/theme.tres" id="2_8qshb"]
+
+[sub_resource type="Theme" id="Theme_8qshb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8qshb"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_50iu1"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
 
 [node name="menu" type="Control"]
 process_mode = 3
@@ -31,25 +46,68 @@ layout_mode = 2
 
 [node name="resume" type="Button" parent="CenterContainer/left-right/GridContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_8qshb")
 text = "KEY_RESUME"
 
 [node name="settings" type="Button" parent="CenterContainer/left-right/GridContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_8qshb")
 text = "KEY_SETTINGS"
 
 [node name="quit" type="Button" parent="CenterContainer/left-right/GridContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_8qshb")
 text = "KEY_QUIT"
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer/left-right"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/left-right/PanelContainer"]
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/left-right/PanelContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CenterContainer/left-right/PanelContainer/MarginContainer"]
+[node name="diary_section" type="MarginContainer" parent="CenterContainer/left-right/PanelContainer/GridContainer"]
 layout_mode = 2
-text = "KEY_DIARY_ENTRIES_UNLOCKED"
+theme = ExtResource("2_8qshb")
+
+[node name="diary_entry" type="Label" parent="CenterContainer/left-right/PanelContainer/GridContainer/diary_section"]
+layout_mode = 2
+text = "Day 1 — Arnold Weber, Gefreiter
+	•	 Lost contact with Kommandoposten Nord und Süd.
+	•	 No new orders. Radio only gives static.
+	•	 Food almost gone.
+	•	 We are holding our position, but everyone is tense."
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/left-right/PanelContainer/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = SubResource("Theme_8qshb")
+theme_override_constants/margin_top = 10
+
+[node name="page_navigation" type="GridContainer" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+columns = 3
+
+[node name="prev_page" type="Button" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
+layout_mode = 2
+theme = ExtResource("2_8qshb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8qshb")
+text = "<"
+
+[node name="page_index" type="Label" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
+layout_mode = 2
+theme = ExtResource("2_8qshb")
+text = "# / #"
+
+[node name="next_page" type="Button" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
+layout_mode = 2
+theme = ExtResource("2_8qshb")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_50iu1")
+text = ">"
 
 [connection signal="pressed" from="CenterContainer/left-right/GridContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="CenterContainer/left-right/GridContainer/settings" to="." method="_on_settings_pressed"]

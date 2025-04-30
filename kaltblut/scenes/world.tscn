@@ -1,22 +1,22 @@
 [gd_scene load_steps=9 format=3 uid="uid://dfcxxdr8ftki7"]
 
-[ext_resource type="Script" uid="uid://ddl6xsfrx6xdh" path="res://scenes/world.gd" id="1_k0juu"]
+[ext_resource type="Script" uid="uid://ddl6xsfrx6xdh" path="res://scripts/world.gd" id="1_k0juu"]
 [ext_resource type="PackedScene" uid="uid://tdeg5iqfiug5" path="res://scenes/environment.tscn" id="1_rwgxs"]
 [ext_resource type="PackedScene" uid="uid://bv3at001lt1ea" path="res://scenes/player.tscn" id="2_rwgxs"]
 [ext_resource type="AudioStream" uid="uid://bgt3phriwbwvm" path="res://imports/sounds/wind/Wind_1.mp3" id="4_71j4m"]
 [ext_resource type="PackedScene" uid="uid://ehl8yelpph3d" path="res://scenes/pause-menu.tscn" id="5_71j4m"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rwgxs"]
-vertices = PackedVector3Array(6.52662, 0.5, 21.9927, 6.52662, 0.5, 8.74267, 6.02662, 0.5, 8.49267, -21.9734, 0.5, 21.9927, 6.02662, 0.5, -8.50733, 6.52662, 0.5, -8.75733, 6.52662, 0.5, -22.0073, -21.9734, 0.5, -22.0073, 7.27662, 0.5, -8.50733, 22.0266, 0.5, -7.25733, 22.0266, 0.5, -22.0073, 7.27662, 0.5, -7.00733, 7.27662, 0.5, 6.99267, 22.0266, 0.5, 7.24267, 7.27662, 0.5, 8.49267, 22.0266, 0.5, 21.9927)
-polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Array(5, 4, 6), PackedInt32Array(6, 4, 7), PackedInt32Array(2, 3, 4), PackedInt32Array(4, 3, 7), PackedInt32Array(5, 6, 8), PackedInt32Array(8, 6, 10), PackedInt32Array(8, 10, 9), PackedInt32Array(9, 11, 8), PackedInt32Array(11, 9, 12), PackedInt32Array(12, 9, 13), PackedInt32Array(1, 14, 0), PackedInt32Array(0, 14, 15), PackedInt32Array(15, 14, 13), PackedInt32Array(14, 12, 13)]
+vertices = PackedVector3Array(-21.9734, 0.5, -7.25733, -11.7234, 0.5, -7.00733, -11.7234, 0.5, -8.50733, -10.9734, 0.5, -8.75733, -10.9734, 0.5, -22.0073, -21.9734, 0.5, -22.0073, 6.02662, 0.5, -8.50733, 6.52662, 0.5, -8.75733, 6.52662, 0.5, -22.0073, -10.2234, 0.5, -8.50733, -10.2234, 0.5, -6.75733, 6.02662, 0.5, -6.75733, 7.27662, 0.5, -8.50733, 22.0266, 0.5, -7.25733, 22.0266, 0.5, -22.0073, 7.27662, 0.5, -7.00733, -21.9734, 0.5, 7.24267, -11.7234, 0.5, 6.99267, 7.27662, 0.5, 6.99267, 22.0266, 0.5, 7.24267, -10.2234, 0.5, 6.74267, 6.02662, 0.5, 6.74267, 6.52662, 0.5, 21.9927, 6.52662, 0.5, 8.74267, 6.02662, 0.5, 8.49267, -10.2234, 0.5, 8.49267, -10.9734, 0.5, 8.74267, -10.9734, 0.5, 21.9927, -11.7234, 0.5, 8.49267, -21.9734, 0.5, 21.9927, 7.27662, 0.5, 8.49267, 22.0266, 0.5, 21.9927)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(2, 0, 3), PackedInt32Array(3, 0, 4), PackedInt32Array(4, 0, 5), PackedInt32Array(7, 6, 8), PackedInt32Array(8, 6, 9), PackedInt32Array(8, 9, 3), PackedInt32Array(8, 3, 4), PackedInt32Array(6, 11, 9), PackedInt32Array(9, 11, 10), PackedInt32Array(7, 8, 12), PackedInt32Array(12, 8, 14), PackedInt32Array(12, 14, 13), PackedInt32Array(13, 15, 12), PackedInt32Array(17, 16, 1), PackedInt32Array(1, 16, 0), PackedInt32Array(15, 13, 18), PackedInt32Array(18, 13, 19), PackedInt32Array(10, 11, 20), PackedInt32Array(20, 11, 21), PackedInt32Array(23, 22, 24), PackedInt32Array(24, 22, 25), PackedInt32Array(25, 22, 26), PackedInt32Array(26, 22, 27), PackedInt32Array(25, 20, 24), PackedInt32Array(24, 20, 21), PackedInt32Array(16, 17, 28), PackedInt32Array(28, 26, 16), PackedInt32Array(16, 26, 27), PackedInt32Array(16, 27, 29), PackedInt32Array(23, 30, 22), PackedInt32Array(22, 30, 31), PackedInt32Array(31, 30, 19), PackedInt32Array(30, 18, 19)]
 agent_max_slope = 60.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rwgxs"]
-albedo_color = Color(0.158472, 0.158472, 0.158472, 1)
+albedo_color = Color(0.419813, 0.419813, 0.419813, 1)
 uv1_triplanar = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nnsk1"]
-albedo_color = Color(0.783523, 0.783523, 0.783523, 1)
+albedo_color = Color(0.226707, 0.226708, 0.226707, 1)
 
 [node name="world" type="Node3D"]
 script = ExtResource("1_k0juu")
@@ -42,11 +42,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.63045, 4.41779, 0)
 size = Vector3(0.164062, 8.83557, 16.0276)
 material = SubResource("StandardMaterial3D_nnsk1")
 
+[node name="DemoWall2" type="CSGBox3D" parent="NavigationRegion3D/DemoTerrianBuilder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.0397, 4.41779, 0)
+size = Vector3(0.164062, 8.83557, 16.0276)
+material = SubResource("StandardMaterial3D_nnsk1")
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_71j4m")
 volume_db = -14.054
-pitch_scale = 0.71
+pitch_scale = 0.75
 autoplay = true
+bus = &"wind"
 parameters/looping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
