@@ -1,7 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://ehl8yelpph3d"]
+[gd_scene load_steps=8 format=3 uid="uid://ehl8yelpph3d"]
 
 [ext_resource type="Script" uid="uid://dus8t87f1jja" path="res://scripts/pause_menu.gd" id="1_024ri"]
 [ext_resource type="Theme" uid="uid://bk7as4gxm1c8l" path="res://ui/theme.tres" id="2_8qshb"]
+[ext_resource type="FontFile" uid="uid://berylv85eo6t1" path="res://imports/fonts/VCR_OSD_MONO_1.001.ttf" id="2_50iu1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8qshb"]
+font = ExtResource("2_50iu1")
+font_size = 180
+outline_size = 30
+outline_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="Theme" id="Theme_8qshb"]
 
@@ -36,43 +43,60 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(493, 332)
 
-[node name="left-right" type="GridContainer" parent="CenterContainer"]
+[node name="GridContainer" type="GridContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 80
+
+[node name="Label" type="Label" parent="CenterContainer/GridContainer/MarginContainer"]
+layout_mode = 2
+text = "KEY_PAUSED"
+label_settings = SubResource("LabelSettings_8qshb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="left-right" type="GridContainer" parent="CenterContainer/GridContainer"]
 layout_mode = 2
 mouse_filter = 0
 columns = 2
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer/left-right"]
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/left-right"]
 layout_mode = 2
 
-[node name="resume" type="Button" parent="CenterContainer/left-right/GridContainer"]
+[node name="resume" type="Button" parent="CenterContainer/GridContainer/left-right/GridContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 text = "KEY_RESUME"
 
-[node name="settings" type="Button" parent="CenterContainer/left-right/GridContainer"]
+[node name="settings" type="Button" parent="CenterContainer/GridContainer/left-right/GridContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 text = "KEY_SETTINGS"
 
-[node name="quit" type="Button" parent="CenterContainer/left-right/GridContainer"]
+[node name="quit" type="Button" parent="CenterContainer/GridContainer/left-right/GridContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 text = "KEY_QUIT"
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/left-right"]
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/GridContainer/left-right"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="CenterContainer/left-right/PanelContainer"]
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer"]
 layout_mode = 2
 
-[node name="diary_section" type="MarginContainer" parent="CenterContainer/left-right/PanelContainer/GridContainer"]
+[node name="diary_section" type="MarginContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer"]
 layout_mode = 2
 theme = ExtResource("2_8qshb")
 
-[node name="diary_entry" type="Label" parent="CenterContainer/left-right/PanelContainer/GridContainer/diary_section"]
+[node name="diary_entry" type="Label" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/diary_section"]
 layout_mode = 2
 text = "Day 1 — Arnold Weber, Gefreiter
 	•	 Lost contact with Kommandoposten Nord und Süd.
@@ -80,35 +104,41 @@ text = "Day 1 — Arnold Weber, Gefreiter
 	•	 Food almost gone.
 	•	 We are holding our position, but everyone is tense."
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/left-right/PanelContainer/GridContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer"]
 layout_mode = 2
 size_flags_vertical = 8
 theme = SubResource("Theme_8qshb")
 theme_override_constants/margin_top = 10
 
-[node name="page_navigation" type="GridContainer" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer"]
+[node name="page_navigation" type="GridContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 columns = 3
 
-[node name="prev_page" type="Button" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
+[node name="prev_page" type="Button" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8qshb")
 text = "<"
 
-[node name="page_index" type="Label" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
+[node name="page_index" type="Label" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
 layout_mode = 2
 theme = ExtResource("2_8qshb")
 text = "# / #"
 
-[node name="next_page" type="Button" parent="CenterContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
+[node name="next_page" type="Button" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_50iu1")
 text = ">"
 
-[connection signal="pressed" from="CenterContainer/left-right/GridContainer/resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="CenterContainer/left-right/GridContainer/settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="CenterContainer/left-right/GridContainer/quit" to="." method="_on_quit_pressed"]
+[node name="audio" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="CenterContainer/GridContainer/left-right/GridContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/left-right/GridContainer/settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/left-right/GridContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation/prev_page" to="." method="_on_prev_page_pressed"]
+[connection signal="pressed" from="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation/next_page" to="." method="_on_next_page_pressed"]

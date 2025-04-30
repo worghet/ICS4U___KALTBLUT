@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://byytpmida4b4e"
+
+[deps]
+
+files=["res://imports/languages/kaltblut-translations.en.translation", "res://imports/languages/kaltblut-translations.ru.translation"]
+
+source_file="res://imports/languages/kaltblut-translations.csv"
+dest_files=["res://imports/languages/kaltblut-translations.en.translation", "res://imports/languages/kaltblut-translations.ru.translation"]
+
+[params]
+
+compress=true
+delimiter=0

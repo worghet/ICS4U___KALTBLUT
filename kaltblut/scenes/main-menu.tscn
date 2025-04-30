@@ -68,14 +68,18 @@ theme_override_constants/margin_top = 15
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_hf3n6")
-text = "KEY_PLAY
-"
+text = "KEY_PLAY"
 
 [node name="settings" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("3_hf3n6")
 text = "KEY_SETTINGS"
+
+[node name="credits" type="Button" parent="MarginContainer/GridContainer"]
+layout_mode = 2
+theme = ExtResource("3_hf3n6")
+text = "KEY_CREDITS"
 
 [node name="quit" type="Button" parent="MarginContainer/GridContainer"]
 layout_mode = 2

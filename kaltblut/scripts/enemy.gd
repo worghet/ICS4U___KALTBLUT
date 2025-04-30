@@ -27,6 +27,7 @@ const enemy_screams : Array = [
 	
 ]
 
+const ding := preload("res://imports/sounds/ui/NewEntry.mp3")
 
 
 @export var player_path : Node3D
@@ -91,11 +92,8 @@ func _process(delta: float) -> void:
 			$"gewehr-43".hide()
 			await get_tree().create_timer(1.2).timeout
 			queue_free()
-			#$anim_soldier.rotate_x(deg_to_rad(-130))
-			#$anim_soldier.translate(Vector3(0, 0, 3.75))
-			#$anim_soldier.rotate_z(deg_to_rad(-10))
-			#$anim_soldier.rotate_x(10)
-
+			
+			# technically not needed
 			return
 			
 		match state:

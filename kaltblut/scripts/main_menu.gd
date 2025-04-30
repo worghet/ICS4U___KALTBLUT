@@ -9,5 +9,4 @@ func _on_play_pressed() -> void:
 	
 
 func _on_quit_pressed() -> void:
-	print("i quit!")
 	get_tree().quit()

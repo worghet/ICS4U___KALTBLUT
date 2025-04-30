@@ -14,6 +14,10 @@ config/name="KALTBLUT"
 run/main_scene="uid://qsoo1jqwtxvr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 
+[audio]
+
+buses/default_bus_layout="res://ui/default_bus_layout.tres"
+
 [debug]
 
 gdscript/warnings/untyped_declaration=2
@@ -77,4 +81,5 @@ right_mouse_button={
 
 [internationalization]
 
-locale/translations=PackedStringArray("res://imports/languages/hello.en.translation", "res://imports/languages/hello.es.translation", "res://imports/languages/hello.fr.translation", "res://imports/languages/hello.ge.translation", "res://imports/languages/hello.ru.translation")
+locale/translations=PackedStringArray("res://imports/languages/kaltblut-translations.en.translation", "res://imports/languages/kaltblut-translations.ru.translation")
+locale/test="ru"
