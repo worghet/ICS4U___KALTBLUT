@@ -78,29 +78,80 @@ theme = ExtResource("2_wswnh")
 text = "KEY_AUDIO"
 
 [node name="setting_panel" type="PanelContainer" parent="center-container/up-down/left-right"]
+custom_minimum_size = Vector2(1200, 0)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="center-container/up-down/left-right/setting_panel"]
+[node name="language" type="MarginContainer" parent="center-container/up-down/left-right/setting_panel"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 40
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="individual_settings" type="GridContainer" parent="center-container/up-down/left-right/setting_panel/MarginContainer"]
+[node name="individual_settings" type="GridContainer" parent="center-container/up-down/left-right/setting_panel/language"]
 layout_mode = 2
 
-[node name="set" type="GridContainer" parent="center-container/up-down/left-right/setting_panel/MarginContainer/individual_settings"]
+[node name="set" type="GridContainer" parent="center-container/up-down/left-right/setting_panel/language/individual_settings"]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 columns = 2
 
-[node name="Label" type="Label" parent="center-container/up-down/left-right/setting_panel/MarginContainer/individual_settings/set"]
+[node name="Label" type="Label" parent="center-container/up-down/left-right/setting_panel/language/individual_settings/set"]
+layout_mode = 2
+theme = ExtResource("2_wswnh")
+text = "LANGUAGE: "
+
+[node name="OptionButton" type="OptionButton" parent="center-container/up-down/left-right/setting_panel/language/individual_settings/set"]
+custom_minimum_size = Vector2(875, 0)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("2_wswnh")
+theme_override_fonts/font = ExtResource("1_cr101")
+theme_override_font_sizes/font_size = 30
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "KEY_ENGLISH"
+popup/item_0/id = 0
+popup/item_1/text = "KEY_RUSSIAN"
+popup/item_1/id = 1
+
+[node name="video" type="MarginContainer" parent="center-container/up-down/left-right/setting_panel"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="individual_settings" type="GridContainer" parent="center-container/up-down/left-right/setting_panel/video"]
+layout_mode = 2
+
+[node name="set" type="GridContainer" parent="center-container/up-down/left-right/setting_panel/video/individual_settings"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 10
+columns = 2
+
+[node name="Label" type="Label" parent="center-container/up-down/left-right/setting_panel/video/individual_settings/set"]
 layout_mode = 2
 theme = ExtResource("2_wswnh")
 text = "SENSITIVITY"
 
-[node name="HSlider" type="HSlider" parent="center-container/up-down/left-right/setting_panel/MarginContainer/individual_settings/set"]
+[node name="VBoxContainer" type="VBoxContainer" parent="center-container/up-down/left-right/setting_panel/video/individual_settings/set"]
+custom_minimum_size = Vector2(885, 0)
 layout_mode = 2
-ticks_on_borders = true
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="HSlider" type="HSlider" parent="center-container/up-down/left-right/setting_panel/video/individual_settings/set/VBoxContainer"]
+layout_mode = 2
+value = 50.0
+scrollable = false
 
 [connection signal="pressed" from="center-container/up-down/left-right/options/back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="center-container/up-down/left-right/options/language" to="." method="_on_language_pressed"]
+[connection signal="pressed" from="center-container/up-down/left-right/options/video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="center-container/up-down/left-right/options/audio" to="." method="_on_audio_pressed"]
+[connection signal="item_selected" from="center-container/up-down/left-right/setting_panel/language/individual_settings/set/OptionButton" to="." method="_on_option_button_item_selected"]

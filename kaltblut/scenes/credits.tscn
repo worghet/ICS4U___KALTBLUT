@@ -5,6 +5,21 @@
 [ext_resource type="Theme" uid="uid://bk7as4gxm1c8l" path="res://ui/theme.tres" id="2_0ctdu"]
 [ext_resource type="AudioStream" uid="uid://0myg4tu0ajrt" path="res://imports/sounds/music/darknightcrushed.mp3" id="4_2fbfq"]
 
+[sub_resource type="Animation" id="Animation_0ctdu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer2/GridContainer/content:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 139)]
+}
+
 [sub_resource type="Animation" id="Animation_2ckv8"]
 resource_name = "scroll down"
 length = 20.0
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(0, 30), Vector2(0, -450)]
-}
-
-[sub_resource type="Animation" id="Animation_0ctdu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MarginContainer2/GridContainer/content:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 139)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2fbfq"]
