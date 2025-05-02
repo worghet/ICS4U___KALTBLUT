@@ -1,0 +1,149 @@
+[gd_scene load_steps=8 format=3 uid="uid://d2hin7r7xw8dn"]
+
+[ext_resource type="Script" uid="uid://ivq2butbg5vy" path="res://scenes/credits.gd" id="1_0ctdu"]
+[ext_resource type="Texture2D" uid="uid://b1sqend1r43p7" path="res://imports/textures/background.jpg" id="1_2ckv8"]
+[ext_resource type="Theme" uid="uid://bk7as4gxm1c8l" path="res://ui/theme.tres" id="2_0ctdu"]
+[ext_resource type="AudioStream" uid="uid://0myg4tu0ajrt" path="res://imports/sounds/music/darknightcrushed.mp3" id="4_2fbfq"]
+
+[sub_resource type="Animation" id="Animation_2ckv8"]
+resource_name = "scroll down"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer2/GridContainer/content:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 19.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 30), Vector2(0, -450)]
+}
+
+[sub_resource type="Animation" id="Animation_0ctdu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer2/GridContainer/content:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 139)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fbfq"]
+_data = {
+&"RESET": SubResource("Animation_0ctdu"),
+&"scroll down": SubResource("Animation_2ckv8")
+}
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0ctdu")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -384.0
+offset_top = -216.0
+offset_right = 384.0
+offset_bottom = 216.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2ckv8")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 300.0
+offset_top = 54.0
+offset_right = 300.0
+offset_bottom = 618.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="scrolling" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2fbfq")
+}
+speed_scale = 0.5
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_2fbfq")
+parameters/looping = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/GridContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 40
+
+[node name="title" type="Label" parent="MarginContainer2/GridContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_0ctdu")
+theme_override_font_sizes/font_size = 130
+text = "CREDITS"
+
+[node name="content" type="Label" parent="MarginContainer2/GridContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("2_0ctdu")
+theme_override_font_sizes/font_size = 26
+text = "An ICS4U project: \"KALTBLUT\"
+
+STORYBOARD DESIGNERS:
+- BENJAMIN TABACHNIK
+- IGOR MELNIKOV
+
+AUDIO DESIGN:
+- BENJAMIN TABACHNIK
+
+3D MODELS:
+- MAP : MIKE BUSHKOV
+- SOLDIER : ------
+- GEWEHR 43 : ------------
+
+TRANSLATORS:
+- IGOR MELNIKOV (RUSSIAN)
+- YUVRAJ SHAWRMA (HINDI)
+- ADNAN KESLER (ARABIC)
+- YUSUF GULER (TURKISH)
+- SHON SINKI (HEBREW)
+- SHYLA HARPER (FRENCH)
+- DAVIS XU (MANDARIN)
+- GABRIEL C. (SPANISH)
+- MIKE BUSHKOV (UKRAINIAN)
+- SERGEY BUSHKOV (GERMAN)
+- KIM SUNGWOO (KOREAN)
+- ISAAC DONUT (ROMANIAN)
+- GABRIEL G. (PORTUGUESE)
+- MICHELE FIORI (ITALIAN)
+- LARA G. (SERBIAN)
+
+Press [ESC] to return to menu."
