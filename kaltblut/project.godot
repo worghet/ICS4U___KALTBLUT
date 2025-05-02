@@ -82,4 +82,4 @@ right_mouse_button={
 [internationalization]
 
 locale/translations=PackedStringArray("res://imports/languages/kaltblut-translations.en.translation", "res://imports/languages/kaltblut-translations.ru.translation")
-locale/test="ru"
+locale/test="s"

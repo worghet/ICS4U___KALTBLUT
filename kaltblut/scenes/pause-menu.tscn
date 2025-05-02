@@ -87,22 +87,20 @@ theme = ExtResource("2_8qshb")
 text = "KEY_QUIT"
 
 [node name="PanelContainer" type="PanelContainer" parent="CenterContainer/GridContainer/left-right"]
+custom_minimum_size = Vector2(1115, 0)
 layout_mode = 2
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer"]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 
 [node name="diary_section" type="MarginContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer"]
+custom_minimum_size = Vector2(1157, 226)
 layout_mode = 2
 theme = ExtResource("2_8qshb")
 
 [node name="diary_entry" type="Label" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/diary_section"]
 layout_mode = 2
-text = "Day 1 — Arnold Weber, Gefreiter
-	•	 Lost contact with Kommandoposten Nord und Süd.
-	•	 No new orders. Radio only gives static.
-	•	 Food almost gone.
-	•	 We are holding our position, but everyone is tense."
 
 [node name="MarginContainer" type="MarginContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer"]
 layout_mode = 2
@@ -111,6 +109,7 @@ theme = SubResource("Theme_8qshb")
 theme_override_constants/margin_top = 10
 
 [node name="page_navigation" type="GridContainer" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer"]
+custom_minimum_size = Vector2(1000, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -118,6 +117,7 @@ columns = 3
 
 [node name="prev_page" type="Button" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
 layout_mode = 2
+size_flags_horizontal = 10
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_8qshb")
@@ -125,11 +125,13 @@ text = "<"
 
 [node name="page_index" type="Label" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
 layout_mode = 2
+size_flags_horizontal = 8
 theme = ExtResource("2_8qshb")
 text = "# / #"
 
 [node name="next_page" type="Button" parent="CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation"]
 layout_mode = 2
+size_flags_horizontal = 8
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_50iu1")

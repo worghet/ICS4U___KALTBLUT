@@ -5,23 +5,43 @@ const page_flip := preload("res://imports/sounds/ui/PageFlip.mp3")
 const open := preload("res://imports/sounds/ui/BookOpen.mp3")
 const close := preload("res://imports/sounds/ui/BookClose.mp3")
 
-
+var current_page : int = 1
+var pages_collected: int = 7
 
 const all_pages : Dictionary = {
 	
-	0 : "ENTRY_1",
-	1 : "ENTRY_2",
-	2 : "ENTRY_3",
-	3 : "ENTRY_4",
-	4 : "ENTRY_5",
-	5 : "ENTRY_6",
-	6 : "ENTRY_7",
+	1 : "KEY_ENTRY_1",
+	2 : "KEY_ENTRY_2",
+	3 : "KEY_ENTRY_3",
+	4 : "KEY_ENTRY_4",
+	5 : "KEY_ENTRY_5",
+	6 : "KEY_ENTRY_6",
+	7 : "KEY_ENTRY_7",
 	
 	
 }
 
+# testing
+	
+func _ready() -> void:
+	
+	audio.stream = open
+	audio.play()
+	
+	$"CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/diary_section/diary_entry".text = all_pages.get(current_page)
+	$"CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation/page_index".text = str(current_page) + " / " + str(pages_collected)
+
 func flip_page(page_num : int) -> void:
-	pass
+	if page_num <= pages_collected and page_num > 0:
+		audio.stream = page_flip
+		audio.play()
+		current_page = page_num
+		$"CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/diary_section/diary_entry".text = all_pages.get(current_page)
+		$"CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation/page_index".text = str(current_page) + " / " + str(pages_collected)	
+			
+func collect_page() -> void:
+	pages_collected += 1
+	$"CenterContainer/GridContainer/left-right/PanelContainer/GridContainer/MarginContainer/page_navigation/page_index".text = str(current_page) + " / " + str(pages_collected)	
 
 func testEsc() -> void:
 	if Input.is_action_just_pressed("escape"):
@@ -33,10 +53,6 @@ func testEsc() -> void:
 func _process(delta: float) -> void:
 	testEsc()
 
-
-func _ready() -> void:
-	audio.stream = close
-	audio.play()
 
 func _on_resume_pressed() -> void:
 	resume()
@@ -73,10 +89,9 @@ func _on_quit_pressed() -> void:
 
 
 func _on_next_page_pressed() -> void:
-	audio.stream = page_flip
-	audio.play()
+	flip_page(current_page + 1)
+
 
 
 func _on_prev_page_pressed() -> void:
-	audio.stream = page_flip
-	audio.play()
+	flip_page(current_page - 1)

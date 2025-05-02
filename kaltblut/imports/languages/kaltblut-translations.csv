@@ -1,8 +1,75 @@
 key,en,ru
+,,
 KEY_PLAY,PLAY,ИГРАТЬ
 KEY_SETTINGS,SETTINGS,НАСТРОЙКИ
 KEY_CREDITS,CREDITS,КРЕДИТЫ
-KEY_QUIT,QUIT,ВЫЙТЕ
+KEY_QUIT,QUIT,ВЫЙТИ
 ,,
 KEY_PAUSED,PAUSED,НА ПАУЗЕ
-KEY_RESUME,RESUME,РЕЗЮМЕ
+KEY_RESUME,RESUME,ПРОДОЛЖИТЬ
+,,
+KEY_ENTRY_1,"Day 1 — Arnold Weber, Gefreiter
+	•	Lost contact with Kommandoposten Nord und Süd.
+	•	No new orders. Radio only gives static.
+	•	Food almost gone.
+	•	We are holding our position, but everyone is tense.","День 1 — Арнольд Вебер, ефрейтор
+• Потеряна связь с команд на севере и на юге.
+• Нет новых приказов. Радио передает только помехи.
+• Еда почти закончилась.
+• Мы удерживаем позицию, но все напряжены."
+KEY_ENTRY_2,"Day 2 — Emil Drexler, Soldat
+	•	Still no message.
+	•	Hard bread and dirty water.
+	•	Arnold sits by the radio for hours.
+	•	He turns the dial even when nothing comes.","2-й день — Эмиль Дрекслер, Soldat
+• По-прежнему нет сообщений.
+• Черствый хлеб и грязная вода.
+• Арнольд часами сидит у радиоприемника.
+• Он крутит ручку настройки, даже когда ничего не приходит."
+KEY_ENTRY_3,"Day 3 — Matthias Vogel, Unteroffizier
+	•	Nights are freezing.
+	•	No fire allowed — afraid enemy will see smoke.
+	•	Arnold took night watch.
+	•	He said he heard movement, but nobody else saw anything.","День 3 — Маттиас Фогель, унтер-офицер
+• Ночи холодные.
+• Огонь запрещено разводить — боимся, что враг увидит дым.
+• Арнольд дежурил ночью.
+• Он сказал, что слышал движение, но больше никто ничего не видел."
+KEY_ENTRY_4,"Day 4 — Felix Kramer, Soldat
+	•	No more food left.
+	•	Only melted snow to drink.
+	•	Drexler saw Arnold whispering into the radio.
+	•	When we asked, Arnold said nothing — just stared at us.","День 4 — Феликс Крамер, солдат
+• Еды больше не осталось.
+• Пить можно только растопленный снег.
+• Дрекслер видел, как Арнольд что-то шепчет в рацию.
+• Когда мы спросили, Арнольд ничего не сказал — просто уставился на нас."
+KEY_ENTRY_5,"Day 5 — Lukas Rehm, Gefreiter
+	•	Men are fighting over small things now.
+	•	Arnold spends time carving marks into his rifle.
+	•	He is too quiet.
+	•	It’s like he is waiting for something.","День 5 — Лукас Рем, ефрейтор
+• Мужчины теперь ссорятся из-за мелочей.
+• Арнольд проводит время, вырезая отметки на своей винтовке.
+• Он слишком тихий.
+• Как будто он чего-то ждет."
+KEY_ENTRY_6,"Day 6 — Emil Drexler, Soldat
+	•	Arnold disappeared during the night.
+	•	Found him near the woods at sunrise, talking to himself.
+	•	He said “Adler-2 reporting.”
+	•	Vogel says something is wrong with him.","День 6 — Эмиль Дрекслер, солдат
+• Арнольд исчез ночью.
+• Нашли его около леса на рассвете, он разговаривал сам с собой.
+• Он сказал: «Адлер-2 докладывает».
+• Фогель говорит, что с ним что-то не так."
+KEY_ENTRY_7,"Day 7 — Matthias Vogel, Unteroffizier
+	•	We stay silent when Arnold is near.
+	•	He watches us like a stranger.
+	•	Last night, he spoke in a voice that sounded wrong.
+	•	Rehm says we should leave him behind.
+	•	I am starting to agree.","День 7 — Маттиас Фогель, унтер-офицер
+• Мы молчим, когда Арнольд рядом.
+• Он смотрит на нас, как на чужака.
+• Вчера вечером он говорил голосом, который звучал как-то не так.
+• Рем говорит, что нам следует оставить его позади.
+• Я начинаю соглашаться."
