@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5632wma687kj"]
 
 [ext_resource type="FontFile" uid="uid://berylv85eo6t1" path="res://imports/fonts/VCR_OSD_MONO_1.001.ttf" id="1_cr101"]
-[ext_resource type="Script" uid="uid://dy5l53mbv60yn" path="res://scenes/settings_menu.gd" id="1_wswnh"]
+[ext_resource type="Script" uid="uid://dy5l53mbv60yn" path="res://scripts/settings_menu.gd" id="1_wswnh"]
 [ext_resource type="Theme" uid="uid://bk7as4gxm1c8l" path="res://ui/theme.tres" id="2_wswnh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_labj1"]
@@ -40,7 +40,7 @@ theme_override_constants/margin_bottom = 80
 
 [node name="title" type="Label" parent="center-container/up-down/margin-title"]
 layout_mode = 2
-text = "SETTINGS"
+text = "KEY_SETTINGS"
 label_settings = SubResource("LabelSettings_labj1")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -100,7 +100,7 @@ columns = 2
 [node name="Label" type="Label" parent="center-container/up-down/left-right/setting_panel/language/individual_settings/set"]
 layout_mode = 2
 theme = ExtResource("2_wswnh")
-text = "LANGUAGE: "
+text = "KEY_LANGUAGE"
 
 [node name="OptionButton" type="OptionButton" parent="center-container/up-down/left-right/setting_panel/language/individual_settings/set"]
 custom_minimum_size = Vector2(875, 0)
@@ -137,7 +137,7 @@ columns = 2
 [node name="Label" type="Label" parent="center-container/up-down/left-right/setting_panel/video/individual_settings/set"]
 layout_mode = 2
 theme = ExtResource("2_wswnh")
-text = "SENSITIVITY"
+text = "KEY_SENSITIVITY"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="center-container/up-down/left-right/setting_panel/video/individual_settings/set"]
 custom_minimum_size = Vector2(885, 0)

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://dfcxxdr8ftki7"]
 
 [ext_resource type="Script" uid="uid://ddl6xsfrx6xdh" path="res://scripts/world.gd" id="1_k0juu"]
-[ext_resource type="PackedScene" uid="uid://tdeg5iqfiug5" path="res://scenes/environment.tscn" id="1_rwgxs"]
-[ext_resource type="PackedScene" uid="uid://bv3at001lt1ea" path="res://scenes/player.tscn" id="2_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://tdeg5iqfiug5" path="res://scenes/gameplay/environment.tscn" id="1_rwgxs"]
+[ext_resource type="PackedScene" uid="uid://bv3at001lt1ea" path="res://scenes/character/player.tscn" id="2_rwgxs"]
 [ext_resource type="AudioStream" uid="uid://bgt3phriwbwvm" path="res://imports/sounds/wind/Wind_1.mp3" id="4_71j4m"]
-[ext_resource type="PackedScene" uid="uid://ehl8yelpph3d" path="res://scenes/pause-menu.tscn" id="5_71j4m"]
-[ext_resource type="Script" uid="uid://dy5l53mbv60yn" path="res://scenes/settings_menu.gd" id="5_i7141"]
+[ext_resource type="PackedScene" uid="uid://ehl8yelpph3d" path="res://scenes/menus/pause-menu.tscn" id="5_71j4m"]
+[ext_resource type="PackedScene" uid="uid://b5632wma687kj" path="res://scenes/menus/settings_menu.tscn" id="6_qfnet"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_rwgxs"]
 vertices = PackedVector3Array(-21.9734, 0.5, -7.25733, -11.7234, 0.5, -7.00733, -11.7234, 0.5, -8.50733, -10.9734, 0.5, -8.75733, -10.9734, 0.5, -22.0073, -21.9734, 0.5, -22.0073, 6.02662, 0.5, -8.50733, 6.52662, 0.5, -8.75733, 6.52662, 0.5, -22.0073, -10.2234, 0.5, -8.50733, -10.2234, 0.5, -6.75733, 6.02662, 0.5, -6.75733, 7.27662, 0.5, -8.50733, 22.0266, 0.5, -7.25733, 22.0266, 0.5, -22.0073, 7.27662, 0.5, -7.00733, -21.9734, 0.5, 7.24267, -11.7234, 0.5, 6.99267, 7.27662, 0.5, 6.99267, 22.0266, 0.5, 7.24267, -10.2234, 0.5, 6.74267, 6.02662, 0.5, 6.74267, 6.52662, 0.5, 21.9927, 6.52662, 0.5, 8.74267, 6.02662, 0.5, 8.49267, -10.2234, 0.5, 8.49267, -10.9734, 0.5, 8.74267, -10.9734, 0.5, 21.9927, -11.7234, 0.5, 8.49267, -21.9734, 0.5, 21.9927, 7.27662, 0.5, 8.49267, 22.0266, 0.5, 21.9927)
@@ -56,8 +56,8 @@ autoplay = true
 bus = &"wind"
 parameters/looping = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-script = ExtResource("5_i7141")
+[node name="setting" parent="." instance=ExtResource("6_qfnet")]
+visible = false
 
-[node name="pause-menu" parent="CanvasLayer" instance=ExtResource("5_71j4m")]
+[node name="pause" parent="." instance=ExtResource("5_71j4m")]
 visible = false

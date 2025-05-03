@@ -2,7 +2,7 @@ extends "res://scripts/character.gd"
 
 # == CONSTANTS ==============================
 
-const EnemyScene := preload("res://scenes/enemy.tscn")
+const EnemyScene := preload("res://scenes/character/enemy.tscn")
 
 # == VARIABLES ==============================
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://d2hin7r7xw8dn"]
 
-[ext_resource type="Script" uid="uid://ivq2butbg5vy" path="res://scenes/credits.gd" id="1_0ctdu"]
+[ext_resource type="Script" uid="uid://ivq2butbg5vy" path="res://scripts/credits.gd" id="1_0ctdu"]
 [ext_resource type="Texture2D" uid="uid://b1sqend1r43p7" path="res://imports/textures/background.jpg" id="1_2ckv8"]
 [ext_resource type="Theme" uid="uid://bk7as4gxm1c8l" path="res://ui/theme.tres" id="2_0ctdu"]
 [ext_resource type="AudioStream" uid="uid://0myg4tu0ajrt" path="res://imports/sounds/music/darknightcrushed.mp3" id="4_2fbfq"]

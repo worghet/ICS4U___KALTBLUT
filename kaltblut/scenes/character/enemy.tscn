@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://c7swlqfn0artd"]
 
-[ext_resource type="PackedScene" uid="uid://cpdsqagh4uabv" path="res://scenes/entity.tscn" id="1_7p1mj"]
+[ext_resource type="PackedScene" uid="uid://cpdsqagh4uabv" path="res://scenes/character/entity.tscn" id="1_7p1mj"]
 [ext_resource type="Script" uid="uid://dkn30ignxe6ok" path="res://scripts/enemy.gd" id="2_md0e3"]
-[ext_resource type="PackedScene" uid="uid://do568pp650j5i" path="res://scenes/gewehr-43.tscn" id="3_4ra3w"]
-[ext_resource type="PackedScene" uid="uid://csj3y84s0sndg" path="res://scenes/anim_soldier.tscn" id="4_5uy6h"]
+[ext_resource type="PackedScene" uid="uid://do568pp650j5i" path="res://scenes/character/gewehr-43.tscn" id="3_4ra3w"]
+[ext_resource type="PackedScene" uid="uid://csj3y84s0sndg" path="res://scenes/character/anim_soldier.tscn" id="4_5uy6h"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7p1mj"]
 albedo_color = Color(0.980392, 0.388235, 0.294118, 1)

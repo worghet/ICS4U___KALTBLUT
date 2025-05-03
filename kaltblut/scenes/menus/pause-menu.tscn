@@ -75,6 +75,7 @@ theme = ExtResource("2_8qshb")
 text = "KEY_RESUME"
 
 [node name="settings" type="Button" parent="CenterContainer/GridContainer/left-right/GridContainer"]
+visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 theme = ExtResource("2_8qshb")

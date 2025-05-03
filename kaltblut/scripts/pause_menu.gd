@@ -76,16 +76,14 @@ func pause() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 
-func _on_settings_pressed() -> void:
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/settings_menu.tscn")
-	
+#func _on_settings_pressed() -> void:
+	#get_tree().paused = false
 
 
 func _on_quit_pressed() -> void:
 	get_tree().paused = false
 	#$".".get_tree().change_scene_to_file("res://scenes/main-menu.tscn")
-	get_tree().change_scene_to_file("res://scenes/main-menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/main-menu.tscn")
 
 
 func _on_next_page_pressed() -> void:
