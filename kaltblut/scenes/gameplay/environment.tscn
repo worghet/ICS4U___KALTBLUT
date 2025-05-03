@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://tdeg5iqfiug5"]
+[gd_scene load_steps=4 format=3 uid="uid://dd7hypo2yr4cr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_y44tv"]
 sky_top_color = Color(0.81119, 0.828956, 0.845557, 1)

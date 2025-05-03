@@ -107,7 +107,7 @@ func _input(event: InputEvent) -> void:
 		
 		# Rotate the CAMERA of the player in relation to the vertical movement of the mouse.
 		#camera.rotate_x(-event.relative.y * MOUSE_SENSITIVITY)
-		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-75), deg_to_rad(75))
+		#camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-15), deg_to_rad(15))
 
 	# If the right mouse button is pressed, enter ADS; if released, exit it.
 	if event.is_action_pressed("right_mouse_button"):
@@ -154,7 +154,7 @@ func _input(event: InputEvent) -> void:
 		var enemy_instance := EnemyScene.instantiate()
 		enemy_instance.set_path($player)
 		enemy_instance.set_violence(4)
-		enemy_instance.global_transform.origin += Vector3(0, 1, 0)
+		enemy_instance.global_transform.origin += Vector3(0, -6.5, 0)
 		get_tree().current_scene.add_child(enemy_instance)
 		print("added enemy!")
 
