@@ -154,7 +154,7 @@ func _input(event: InputEvent) -> void:
 		var enemy_instance := EnemyScene.instantiate()
 		enemy_instance.set_path($player)
 		enemy_instance.set_violence(4)
-		enemy_instance.global_transform.origin += Vector3(0, -6.5, 0)
+		enemy_instance.global_transform.origin += Vector3(-40, -9, -196)
 		get_tree().current_scene.add_child(enemy_instance)
 		print("added enemy!")
 
